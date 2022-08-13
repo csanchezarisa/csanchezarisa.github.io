@@ -42,6 +42,7 @@ function MainSection({ state, fullpageApi }) {
               as={'span'}
               color={'white'}
               position={'relative'}
+              zIndex={1}
               _after={{
                 content: "''",
                 width: 'full',
