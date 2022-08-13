@@ -3,13 +3,12 @@ import { ChakraProvider, Fade } from '@chakra-ui/react';
 
 import './App.css';
 import Loading from './components/Loading/Loading';
-import MainNavBar from './components/MainNavBar/MainNavBar';
-const FullPage = React.lazy(() => import('./components/FullPage/FullPage'))
+const FullPage = React.lazy(() => import('./components/FullPage/FullPage'));
 
 function App() {
   const [isLoaded, changeIsLoaded] = useState(false);
   if(isLoaded) {
-    setTimeout(() => changeIsLoaded(true), 100)
+    setTimeout(() => changeIsLoaded(true), 100);
   }
 
   return (
@@ -17,9 +16,8 @@ function App() {
       in={!isLoaded}
       unmountOnExit={true}
     >
-      <ChakraProvider>
+      <ChakraProvider >
         <div className="App">
-          <MainNavBar />
           <Suspense fallback={<Loading />}>
             <FullPage />
           </Suspense>

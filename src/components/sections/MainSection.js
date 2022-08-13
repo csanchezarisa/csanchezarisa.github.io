@@ -9,7 +9,7 @@ import {
   Text,
   Button,
   Image,
-  IconButton,
+  useBreakpointValue,
 } from '@chakra-ui/react';
 import { TypeAnimation } from 'react-type-animation';
 
@@ -33,9 +33,11 @@ function MainSection({ state, fullpageApi }) {
         direction={{ base: 'column', md: 'row' }}>
         <Stack flex={1} spacing={{ base: 5, md: 10 }}>
           <Heading
+            as="h1"
             lineHeight={1.1}
             fontWeight={600}
-            fontSize={{ base: '3xl', sm: '4xl', lg: '5xl' }}>
+            fontSize={{ base: '3xl', sm: '4xl', lg: '6xl' }}
+          >
             <Text
               as={'span'}
               color={'white'}
@@ -43,24 +45,30 @@ function MainSection({ state, fullpageApi }) {
               _after={{
                 content: "''",
                 width: 'full',
-                height: '30%',
+                height: useBreakpointValue({ base: '20%', md: '30%' }),
                 position: 'absolute',
                 bottom: 1,
                 left: 0,
                 bg: 'red.400',
                 zIndex: -1,
-              }}>
+              }}
+            >
               Cristóbal,
             </Text>
             <br />
-            <Text as={'code'} color={'red.400'}>
+            <Text 
+              as={'code'} 
+              color={'red.400'} 
+              fontSize={{ base: '2xl', sm: '3xl', lg: '5xl' }}
+            >
               <TypeAnimation 
                 sequence={typeAnimationSequence}
                 cursor={true}
                 repeat={Infinity}
                 wrapper="div"
+                speed={25}
               />
-            </Text>
+              </Text>
           </Heading>
           <Text color={'gray.300'}>
             {t('presentation')}
@@ -102,17 +110,6 @@ function MainSection({ state, fullpageApi }) {
             boxShadow={'2xl'}
             width={'full'}
             overflow={'hidden'}>
-            <IconButton
-              aria-label={'Play Button'}
-              variant={'ghost'}
-              _hover={{ bg: 'transparent' }}
-              size={'lg'}
-              color={'white'}
-              position={'absolute'}
-              left={'50%'}
-              top={'50%'}
-              transform={'translateX(-50%) translateY(-50%)'}
-            />
             <Image
               alt={'Hero Image'}
               fit={'cover'}
