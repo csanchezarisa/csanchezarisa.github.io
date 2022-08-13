@@ -31,7 +31,15 @@ function MainNavBar() {
   useEffect(() => { }, [currentLanguage])
 
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" sticky="top">
+    <Navbar 
+      collapseOnSelect 
+      expand="lg" 
+      bg="dark" 
+      variant="dark" 
+      sticky="top"
+      style={{ opacity: 0.8 }}
+      id="main-menu"
+    >
       <Container>
         {/* LOGO */}
         <Navbar.Brand href="/">
@@ -60,8 +68,10 @@ function MainNavBar() {
               menuVariant="dark"
             >
               <NavDropdown.Header>{t('language')}</NavDropdown.Header>
+              
               {languages.map(({ code, name, country_code }) => (
                 <NavDropdown.Item
+                  key={code}
                   onClick={() => changeLanguage(code)}
                   disabled={code === currentLanguageCode}
                 >

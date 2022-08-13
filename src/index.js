@@ -6,12 +6,12 @@ import 'flag-icon-css/css/flag-icons.min.css';
 
 import './index.css';
 import './i18n';
-import App from './App';
 import Loading from './components/Loading/Loading'
+const App = React.lazy(() => import('./App'));
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <Suspense fallback={Loading}>
+  <Suspense fallback={<Loading />}>
     <React.StrictMode>
       <App />
     </React.StrictMode>

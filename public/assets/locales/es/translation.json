@@ -1,4 +1,15 @@
 {
   "welcome": "Bienvenido al portafolio de csanchezarisa creado usando React",
-  "language": "Idioma"
+  "language": "Idioma",
+  "presentation": "Soy un ingeniero de software junior, apasionado por la computación y la programación. Me encanta el mundo de las TIC y todo lo que lo rodea. Me gustan los retos y poder hacer feliz a la gente con mis soluciones.",
+  "contact_me": "Contáctame",
+  "name": "Nombre",
+  "message": "Mensaje",
+  "email": "Email",
+  "your_email": "Tu Email",
+  "your_name": "Tu Nombre",
+  "your_message": "Tu Mensaje",
+  "send_message": "Enviar Mensaje",
+  "copy_email": "Copia el Email",
+  "email_copied": "Email Copiado!"
 }
