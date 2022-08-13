@@ -1,0 +1,38 @@
+body {
+  background-color: #282c34;
+  min-height: 100vh;
+  height: 100vh;
+}
+
+img.loading-logo {
+  height: 40vmin;
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+div.Loading-content {
+  height: 100vh;
+  padding-top: auto;
+  padding-bottom: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  img.loading-logo {
+    animation: loading-logo-spin infinite 2s both;
+  }
+}
+
+@keyframes loading-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

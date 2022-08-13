@@ -1,0 +1,15 @@
+{
+  "welcome": "Welcome to csanchezarisa's portfolio made using React",
+  "language": "Language",
+  "presentation": "I am a junior software engineer, passionate about computing and programming. I really love the ICT world and everything around it. I like challenges and being able to make people happy with my solutions",
+  "contact_me": "Contact Me",
+  "name": "Name",
+  "message": "Message",
+  "email": "Email",
+  "your_email": "Your Email",
+  "your_name": "Your Name",
+  "your_message": "Your Message",
+  "send_message": "Send Message",
+  "copy_email": "Copy Email",
+  "email_copied": "Email Copied!"
+}

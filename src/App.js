@@ -1,24 +1,31 @@
-import logo from './logo.svg';
+import React, { Suspense, useState } from 'react';
+import { ChakraProvider, Fade } from '@chakra-ui/react';
+
 import './App.css';
+import Loading from './components/Loading/Loading';
+import MainNavBar from './components/MainNavBar/MainNavBar';
+const FullPage = React.lazy(() => import('./components/FullPage/FullPage'))
 
 function App() {
+  const [isLoaded, changeIsLoaded] = useState(false);
+  if(isLoaded) {
+    setTimeout(() => changeIsLoaded(true), 100)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fade
+      in={!isLoaded}
+      unmountOnExit={true}
+    >
+      <ChakraProvider>
+        <div className="App">
+          <MainNavBar />
+          <Suspense fallback={<Loading />}>
+            <FullPage />
+          </Suspense>
+        </div>
+      </ChakraProvider>
+    </Fade>
   );
 }
 
