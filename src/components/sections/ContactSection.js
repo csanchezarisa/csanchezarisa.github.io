@@ -20,6 +20,8 @@ import {
   useClipboard,
   useColorModeValue,
   VStack,
+  Text,
+  useBreakpointValue,
 } from '@chakra-ui/react';
 
 const confetti = {
@@ -60,15 +62,38 @@ function ContactSection({ state, fullpageApi }) {
         <Box>
           <VStack spacing={{ base: 4, md: 8, lg: 20 }}>
             <Heading
-              fontSize={{
-                base: '4xl',
-                md: '5xl',
-              }}
+              as="h1"
+              lineHeight={1.1}
+              fontWeight={600}
+              fontSize={{ base: '3xl', sm: '4xl', lg: '6xl' }}
               color={'white'}
+              textAlign='center'
             >
-              {t('contact_me')}
+              <Text
+                as={'span'}
+                color={'white'}
+                position={'relative'}
+                _after={{
+                  content: "''",
+                  width: 'full',
+                  height: useBreakpointValue({ base: '20%', md: '30%' }),
+                  position: 'absolute',
+                  bottom: 1,
+                  left: 0,
+                  bg: 'red.400',
+                  zIndex: -1,
+                }}
+              >
+                {t('contact_me')}
+              </Text>
+              <br />
             </Heading>
-
+            <Text 
+              color={'gray.300'}
+              textAlign='center'
+            >
+              {t('contact_me_description')}
+            </Text>
             <Stack
               spacing={{ base: 4, md: 8, lg: 20 }}
               direction={{ base: 'column', md: 'row' }}>
@@ -85,7 +110,8 @@ function ContactSection({ state, fullpageApi }) {
                     variant="ghost"
                     size="lg"
                     fontSize="3xl"
-                    color={'whiteAlpha.600'}
+                    color={'whiteAlpha.800'}
+                    colorScheme="red"
                     icon={<MdEmail />}
                     _hover={{
                       bg: 'red.400',
@@ -102,7 +128,8 @@ function ContactSection({ state, fullpageApi }) {
                     variant="ghost"
                     size="lg"
                     fontSize="3xl"
-                    color={'whiteAlpha.600'}
+                    color={'whiteAlpha.800'}
+                    colorScheme="red"
                     icon={<BsGithub />}
                     _hover={{
                       bg: 'red.400',
@@ -117,7 +144,8 @@ function ContactSection({ state, fullpageApi }) {
                     aria-label="instagram"
                     variant="ghost"
                     size="lg"
-                    color={'whiteAlpha.600'}
+                    color={'whiteAlpha.800'}
+                    colorScheme="red"
                     icon={<BsInstagram size="28px" />}
                     _hover={{
                       bg: 'red.400',
@@ -132,7 +160,8 @@ function ContactSection({ state, fullpageApi }) {
                     aria-label="linkedin"
                     variant="ghost"
                     size="lg"
-                    color={'whiteAlpha.600'}
+                    color={'whiteAlpha.800'}
+                    colorScheme="red"
                     icon={<BsLinkedin size="28px" />}
                     _hover={{
                       bg: 'red.400',
@@ -148,8 +177,9 @@ function ContactSection({ state, fullpageApi }) {
                 borderRadius="lg"
                 p={8}
                 color={useColorModeValue('gray.700', 'whiteAlpha.900')}
-                shadow="base">
-                <VStack spacing={5} color={'white'} colorScheme="red">
+                shadow="base"
+                opacity={0.8}>
+                <VStack spacing={5} color={'white'} opacity={1}>
                   <FormControl isRequired>
                     <FormLabel>{t('name')}</FormLabel>
 

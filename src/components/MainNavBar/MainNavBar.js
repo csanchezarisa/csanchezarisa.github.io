@@ -22,7 +22,7 @@ const languages = [
   }
 ]
 
-function MainNavBar() {
+function MainNavBar({ sections = [], state = null, fullpageApi, activeSection = '' }) {
   const { t } = useTranslation();
 
   const currentLanguageCode = cookies.get('i18next') || 'es';
@@ -37,7 +37,6 @@ function MainNavBar() {
       bg="dark" 
       variant="dark" 
       sticky="top"
-      style={{ opacity: 0.8 }}
       id="main-menu"
     >
       <Container>
@@ -54,9 +53,18 @@ function MainNavBar() {
 
         {/* NAV ITEMS */}
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="#item1">Item 1</Nav.Link>
-            <Nav.Link href="#item2">Item 2</Nav.Link>
+          <Nav className="me-auto" id="main-menu">
+            {sections.map(({ id, name }, index) => {
+              return (
+                <Nav.Link 
+                  onClick={() => fullpageApi.moveTo(index + 2)} 
+                  key={id}
+                  className={activeSection === id ? 'active' : ''}
+                >
+                  {name}
+                </Nav.Link>
+              );
+            })}
           </Nav>
 
           {/* CHANGE LANG */}
