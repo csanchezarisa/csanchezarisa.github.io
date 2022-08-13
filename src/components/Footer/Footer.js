@@ -1,48 +1,19 @@
 import {
   Box,
-  chakra,
   Container,
   Link,
   Stack,
   Text,
   useColorModeValue,
-  VisuallyHidden,
   Image,
 } from '@chakra-ui/react';
 
 import './Footer.css';
 
-const SocialButton = ({
-  children,
-  label,
-  href,
-}) => {
-  return (
-    <chakra.button
-      bg={useColorModeValue('blackAlpha.100', 'whiteAlpha.100')}
-      rounded={'full'}
-      w={8}
-      h={8}
-      cursor={'pointer'}
-      as={'a'}
-      href={href}
-      display={'inline-flex'}
-      alignItems={'center'}
-      justifyContent={'center'}
-      transition={'background 0.3s ease'}
-      _hover={{
-        bg: useColorModeValue('blackAlpha.200', 'whiteAlpha.200'),
-      }}>
-      <VisuallyHidden>{label}</VisuallyHidden>
-      {children}
-    </chakra.button>
-  );
-};
-
 function Footer({ sections = [], state = null, fullpageApi }) {
   return (
     <Box
-      bg={useColorModeValue('dark', 'gray.900')}
+      bg={useColorModeValue('#212529', '#212529')}
       color={useColorModeValue('white', 'gray.200')}>
       <Container
         as={Stack}
