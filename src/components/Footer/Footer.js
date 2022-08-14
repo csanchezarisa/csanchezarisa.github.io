@@ -1,18 +1,28 @@
 import {
   Box,
   Container,
-  Link,
   Stack,
   Text,
   useColorModeValue,
   Image,
-  color,
 } from '@chakra-ui/react';
-import { Navbar, Nav } from 'react-bootstrap';
+import cookies from 'js-cookie';
+import { useEffect } from 'react';
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
+import { changeLanguage } from 'i18next';
 
 import './Footer.css';
+import languages from '../../languages';
 
 function Footer({ sections = [], state = null, fullpageApi, activeSection = '' }) {
+  const { t } = useTranslation();
+
+  const currentLanguageCode = cookies.get('i18next') || 'es';
+  const currentLanguage = languages.find(l => l.code === currentLanguageCode);
+
+  useEffect(() => { }, [currentLanguage])
+
   return (
     <Box
       bg={useColorModeValue('#212529', '#212529')}
@@ -39,6 +49,7 @@ function Footer({ sections = [], state = null, fullpageApi, activeSection = '' }
           <Text
             as="strong"
             className="logo"
+            verticalAlign="center"
           >
             CSANCHEZARISA
           </Text>
@@ -51,6 +62,8 @@ function Footer({ sections = [], state = null, fullpageApi, activeSection = '' }
         >
           <Container>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+
+            {/* NAV ITEMS */}
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="me-auto" id="main-menu">
                 {sections.map(({ id, name }, index) => {
@@ -64,6 +77,34 @@ function Footer({ sections = [], state = null, fullpageApi, activeSection = '' }
                     </Nav.Link>
                   );
                 })}
+              </Nav>
+
+              {/* CHANGE LANG */}
+              <Nav>
+                <NavDropdown
+                  title={t('language')}
+                  id="collasible-nav-dropdown"
+                  align="end"
+                  drop="up"
+                  menuVariant="dark"
+                >
+                  <NavDropdown.Header>{t('language')}</NavDropdown.Header>
+                  
+                  {languages.map(({ code, name, country_code }) => (
+                    <NavDropdown.Item
+                      key={code}
+                      onClick={() => changeLanguage(code)}
+                      disabled={code === currentLanguageCode}
+                    >
+                      <span
+                        className={`flag-icon flag-icon-${country_code} mx-2`}
+                        style={{ opacity: code === currentLanguageCode ? 0.5 : 1 }}
+                      >
+                      </span>
+                      {name}
+                    </NavDropdown.Item>
+                  ))}
+                </NavDropdown>
               </Nav>
             </Navbar.Collapse>
           </Container>
