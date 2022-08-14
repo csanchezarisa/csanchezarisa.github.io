@@ -30,7 +30,8 @@ function MainSection({ state, fullpageApi }) {
         align={'center'}
         spacing={{ base: 8, md: 10 }}
         py={{ base: 20, md: 28 }}
-        direction={{ base: 'column', md: 'row' }}>
+        direction={{ base: 'column', md: 'row' }}
+      >
         <Stack flex={1} spacing={{ base: 5, md: 10 }}>
           <Heading
             as="h1"
@@ -92,7 +93,7 @@ function MainSection({ state, fullpageApi }) {
               size={'lg'}
               fontWeight={'normal'}
               px={6}
-              onClick={() => fullpageApi.moveTo(2)}
+              onClick={() => fullpageApi.moveTo(4)}
             >
               {t('contact_me')}
             </Button>

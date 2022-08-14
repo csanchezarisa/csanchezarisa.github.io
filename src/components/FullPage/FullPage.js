@@ -4,8 +4,9 @@ import { useTranslation } from "react-i18next";
 
 import './FullPage.css';
 import MainNavBar from '../MainNavBar/MainNavBar';
-import MainSection from '../sections/MainSection';
-import ContactSection from '../sections/ContactSection';
+import MainSection from '../sections/MainSection/MainSection';
+import ContactSection from '../sections/ContactSection/ContactSection';
+// import MyStack from '../sections/MyStack/MyStack';
 import Footer from '../Footer/Footer';
 import { SlideFade } from '@chakra-ui/react';
 
@@ -22,6 +23,7 @@ function FullPage() {
 
   const Sections = [
     { Section: MainSection, id: 'main', name: 'Hero' },
+    // { Section: MyStack, id: 'stack', name: 'My Stack' },
     { Section: ContactSection, id: 'contact', name: t('contact_me') },
   ]
 
@@ -43,7 +45,11 @@ function FullPage() {
             <ReactFullpage.Wrapper>
               {/* Navbar */}
               <nav id="menu" className='section fp-auto-height'>
-                <MainNavBar sections={Sections} fullpageApi={fullpageApi} activeSection={activeSection} />
+                <MainNavBar 
+                  sections={Sections} 
+                  fullpageApi={fullpageApi} 
+                  activeSection={activeSection} 
+                />
               </nav>
 
               {/* Sections */}
@@ -57,7 +63,11 @@ function FullPage() {
 
               {/* Footer */}
               <footer id="footer" className="section fp-auto-height">
-                <Footer sections={Sections} fullpageApi={fullpageApi} />
+                <Footer 
+                  sections={Sections} 
+                  fullpageApi={fullpageApi} 
+                  activeSection={activeSection} 
+                />
               </footer>
             </ReactFullpage.Wrapper>
           );

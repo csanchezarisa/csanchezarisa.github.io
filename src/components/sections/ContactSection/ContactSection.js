@@ -87,7 +87,6 @@ function ContactSection({ state, fullpageApi }) {
               >
                 {t('contact_me')}
               </Text>
-              <br />
             </Heading>
             <Text 
               color={'gray.300'}
@@ -179,7 +178,8 @@ function ContactSection({ state, fullpageApi }) {
                 p={8}
                 color={useColorModeValue('gray.700', 'whiteAlpha.900')}
                 shadow="base"
-                opacity={0.8}>
+                opacity={0.8}
+              >
                 <VStack spacing={5} color={'white'} opacity={1}>
                   <FormControl isRequired>
                     <FormLabel>{t('name')}</FormLabel>

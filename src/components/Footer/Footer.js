@@ -6,11 +6,13 @@ import {
   Text,
   useColorModeValue,
   Image,
+  color,
 } from '@chakra-ui/react';
+import { Navbar, Nav } from 'react-bootstrap';
 
 import './Footer.css';
 
-function Footer({ sections = [], state = null, fullpageApi }) {
+function Footer({ sections = [], state = null, fullpageApi, activeSection = '' }) {
   return (
     <Box
       bg={useColorModeValue('#212529', '#212529')}
@@ -23,7 +25,12 @@ function Footer({ sections = [], state = null, fullpageApi }) {
         justify={'center'}
         align={'center'}
       >
-        <Stack direction={'row'} verticalAlign="center">
+        <Stack 
+          direction={'row'} 
+          verticalAlign="center" 
+          onClick={() => fullpageApi.moveTo(1)}
+          cursor="pointer"
+        >
           <Image 
             src="https://www.gravatar.com/avatar/9fe92a893b3879a72ea0c451d504a3fb?s=30"
             className="logo d-inline-block align-top"
@@ -36,13 +43,31 @@ function Footer({ sections = [], state = null, fullpageApi }) {
             CSANCHEZARISA
           </Text>
         </Stack>
-        <Stack direction={'row'} spacing={6}>
-          {sections.map(({ id, name }, index) => {
-            return (
-              <Link onClick={() => fullpageApi.moveTo(index + 2)} key={id}>{name}</Link>
-            )
-          })}
-        </Stack>
+        <Navbar 
+          collapseOnSelect 
+          bg="dark" 
+          variant="dark" 
+          id="footer-menu"
+        >
+          <Container>
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            <Navbar.Collapse id="responsive-navbar-nav">
+              <Nav className="me-auto" id="main-menu">
+                {sections.map(({ id, name }, index) => {
+                  return (
+                    <Nav.Link 
+                      onClick={() => fullpageApi.moveTo(index + 2)} 
+                      key={id}
+                      className={activeSection === id ? 'active' : ''}
+                    >
+                      {name}
+                    </Nav.Link>
+                  );
+                })}
+              </Nav>
+            </Navbar.Collapse>
+          </Container>
+        </Navbar>
       </Container>
 
       <Box
@@ -57,7 +82,9 @@ function Footer({ sections = [], state = null, fullpageApi }) {
           spacing={4}
           justify={{ base: 'left', md: 'space-between' }}
           align={{ base: 'left', md: 'left' }}>
-          <Text>&nbsp;</Text>
+          <Text>
+            Cristóbal Sánchez Arisa
+          </Text>
         </Container>
       </Box>
     </Box>
