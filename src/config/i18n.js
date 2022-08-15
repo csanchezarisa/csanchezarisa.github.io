@@ -13,7 +13,7 @@ i18n
     fallbackLng: "en",
 
     detection: {
-      order: ['querystring', 'cookie', 'localStorage', 'navigator', 'path', 'subdomain'],
+      order: ['querystring', 'path', 'cookie', 'localStorage', 'navigator', 'subdomain'],
 
       lookupQuerystring: 'lng',
       lookupCookie: 'i18next',

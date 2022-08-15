@@ -5,6 +5,7 @@
   "homepage": "https://csanchezarisa.github.io",
   "dependencies": {
     "@chakra-ui/react": "^2.2.6",
+    "@emailjs/browser": "^3.6.2",
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
     "@fullpage/react-fullpage": "^0.1.27",
@@ -22,6 +23,7 @@
     "react": "^18.2.0",
     "react-bootstrap": "^2.5.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.34.1",
     "react-i18next": "^11.18.3",
     "react-icons": "^4.4.0",
     "react-scripts": "5.0.1",

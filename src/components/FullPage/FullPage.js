@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import ReactFullpage from '@fullpage/react-fullpage';
 import { useTranslation } from "react-i18next";
+import { SlideFade } from '@chakra-ui/react';
 
 import './FullPage.css';
 import MainNavBar from '../MainNavBar/MainNavBar';
 import MainSection from '../sections/MainSection/MainSection';
 import ContactSection from '../sections/ContactSection/ContactSection';
-// import MyStack from '../sections/MyStack/MyStack';
 import Footer from '../Footer/Footer';
-import { SlideFade } from '@chakra-ui/react';
+import { fullpageApiLicense } from '../../config/licenses';
 
 
 function FullPage() {
@@ -23,7 +23,6 @@ function FullPage() {
 
   const Sections = [
     { Section: MainSection, id: 'main', name: 'Hero' },
-    // { Section: MyStack, id: 'stack', name: 'My Stack' },
     { Section: ContactSection, id: 'contact', name: t('contact_me') },
   ]
 
@@ -33,7 +32,7 @@ function FullPage() {
       unmountOnExit={true}
     >
       <ReactFullpage
-        licenseKey="gplv3-license"
+        licenseKey={fullpageApiLicense}
         scrollingSpeed={300}
         sectionsColor={'#282c34,'.repeat(Sections.length + 2).split(',')}
         normalScrollElements='.footer'

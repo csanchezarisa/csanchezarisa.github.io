@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'flag-icon-css/css/flag-icons.min.css';
 
 import './index.css';
-import './i18n';
+import './config/i18n';
 import Loading from './components/Loading/Loading'
 const App = React.lazy(() => import('./App'));
 

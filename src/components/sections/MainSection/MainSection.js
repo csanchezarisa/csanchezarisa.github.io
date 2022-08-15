@@ -81,7 +81,6 @@ function MainSection({ state, fullpageApi }) {
             <Button
               rounded={'full'}
               size={'lg'}
-              fontWeight={'normal'}
               px={6}
               colorScheme={'red'}
               bg={'red.400'}
@@ -91,7 +90,6 @@ function MainSection({ state, fullpageApi }) {
             <Button
               rounded={'full'}
               size={'lg'}
-              fontWeight={'normal'}
               px={6}
               onClick={() => fullpageApi.moveTo(4)}
             >

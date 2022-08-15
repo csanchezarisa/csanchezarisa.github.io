@@ -1,7 +1,9 @@
-import React from "react";
-import { BsGithub, BsInstagram, BsLinkedin, BsPerson } from 'react-icons/bs';
+import React, { useRef, useState } from "react";
+import { BsPerson } from 'react-icons/bs';
+import { FaDocker, FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import { MdEmail, MdOutlineEmail } from 'react-icons/md';
 import { useTranslation } from "react-i18next";
+import { useForm } from 'react-hook-form';
 import {
   Box,
   Button,
@@ -22,7 +24,10 @@ import {
   VStack,
   Text,
   useBreakpointValue,
+  FormErrorMessage,
+  useToast,
 } from '@chakra-ui/react';
+import sendForm from "../../../services/EmailSender";
 
 const confetti = {
   light: {
@@ -42,8 +47,60 @@ const CONFETTI_DARK = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2
 
 function ContactSection({ state, fullpageApi }) {
   const { t } = useTranslation();
+  const toast = useToast();
+
+  const form = useRef();
+  const [isEmailSubmitting, changeEmailSubmitting] = useState(false);
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm();
 
   const { hasCopied, onCopy } = useClipboard('csanchezarisa@gmail.com');
+
+  /**
+   * Sends and email with using the form data
+   */
+  function onSubmit() {
+    if(isEmailSubmitting) {
+      return;
+    }
+
+    changeEmailSubmitting(true);
+    sendForm(form)
+      .then((isSentCorrectly) => {
+        changeEmailSubmitting(false);
+        showToast(isSentCorrectly);
+      });
+  }
+
+  /**
+   * Shows a success or error toast when the
+   * email is sent.
+   * @param {boolean} isSuccess Whether the email 
+   * has sent successfully or not.
+   */
+  function showToast(isSuccess) {
+    let toastConfig = {
+      duration: 5000,
+      isClosable: true,
+      colorScheme: 'red'
+    }
+
+    if(isSuccess) {
+      toastConfig.status = 'success';
+      toastConfig.title = t('email_sent_correctly_title');
+      toastConfig.description = t('email_sent_correctly_message');
+    }
+    else {
+      toastConfig.status = 'error';
+      toastConfig.title = t('email_sent_error_title');
+      toastConfig.description = t('email_sent_error_message');
+    }
+
+    toast(toastConfig);
+  }
 
   return (
     <Flex
@@ -96,15 +153,18 @@ function ContactSection({ state, fullpageApi }) {
             </Text>
             <Stack
               spacing={{ base: 4, md: 8, lg: 20 }}
-              direction={{ base: 'column', md: 'row' }}>
+              direction={{ base: 'column', md: 'row' }}
+            >
               <Stack
                 align="center"
                 justify="space-around"
-                direction={{ base: 'row', md: 'column' }}>
+                direction={{ base: 'row', md: 'column' }}
+              >
                 <Tooltip
                   label={hasCopied ? t('email_copied') : t('copy_email')}
                   closeOnClick={false}
-                  hasArrow>
+                  hasArrow
+                >
                   <IconButton
                     aria-label="email"
                     variant="ghost"
@@ -122,54 +182,91 @@ function ContactSection({ state, fullpageApi }) {
                   />
                 </Tooltip>
 
-                <Link href="https://github.com/csanchezarisa" target="_blank">
-                  <IconButton
-                    aria-label="github"
-                    variant="ghost"
-                    size="lg"
-                    fontSize="3xl"
-                    color={'whiteAlpha.800'}
-                    colorScheme="red"
-                    icon={<BsGithub />}
-                    _hover={{
-                      bg: 'red.400',
-                      color: useColorModeValue('white', 'gray.700'),
-                    }}
-                    isRound
-                  />
-                </Link>
+                <Tooltip
+                  label="GitHub"
+                  hasArrow
+                >
+                  <Link href="https://github.com/csanchezarisa" target="_blank">
+                    <IconButton
+                      aria-label="github"
+                      variant="ghost"
+                      size="lg"
+                      fontSize="3xl"
+                      color={'whiteAlpha.800'}
+                      colorScheme="red"
+                      icon={<FaGithub />}
+                      _hover={{
+                        bg: 'red.400',
+                        color: useColorModeValue('white', 'gray.700'),
+                      }}
+                      isRound
+                    />
+                  </Link>
+                </Tooltip>
+                
+                <Tooltip
+                  label="DockerHub"
+                  hasArrow
+                >
+                  <Link href="https://hub.docker.com/u/csanchezarisa" target="_blank">
+                    <IconButton
+                      aria-label="dockerhub"
+                      variant="ghost"
+                      size="lg"
+                      fontSize="3xl"
+                      color={'whiteAlpha.800'}
+                      colorScheme="red"
+                      icon={<FaDocker />}
+                      _hover={{
+                        bg: 'red.400',
+                        color: useColorModeValue('white', 'gray.700'),
+                      }}
+                      isRound
+                    />
+                  </Link>
+                </Tooltip>
 
-                <Link href="https://www.instagram.com/ulkiobal/" target="_blank">
-                  <IconButton
-                    aria-label="instagram"
-                    variant="ghost"
-                    size="lg"
-                    color={'whiteAlpha.800'}
-                    colorScheme="red"
-                    icon={<BsInstagram size="28px" />}
-                    _hover={{
-                      bg: 'red.400',
-                      color: useColorModeValue('white', 'gray.700'),
-                    }}
-                    isRound
-                  />
-                </Link>
+                <Tooltip
+                  label="Instagram"
+                  hasArrow
+                >
+                  <Link href="https://www.instagram.com/ulkiobal/" target="_blank">
+                    <IconButton
+                      aria-label="instagram"
+                      variant="ghost"
+                      size="lg"
+                      color={'whiteAlpha.800'}
+                      colorScheme="red"
+                      icon={<FaInstagram size="28px" />}
+                      _hover={{
+                        bg: 'red.400',
+                        color: useColorModeValue('white', 'gray.700'),
+                      }}
+                      isRound
+                    />
+                  </Link>
+                </Tooltip>
 
-                <Link href="https://www.linkedin.com/in/cristobal-sanchez-arisa/" target="_blank">
-                  <IconButton
-                    aria-label="linkedin"
-                    variant="ghost"
-                    size="lg"
-                    color={'whiteAlpha.800'}
-                    colorScheme="red"
-                    icon={<BsLinkedin size="28px" />}
-                    _hover={{
-                      bg: 'red.400',
-                      color: useColorModeValue('white', 'gray.700'),
-                    }}
-                    isRound
-                  />
-                </Link>
+                <Tooltip
+                  label="LinkedIn"
+                  hasArrow
+                >
+                  <Link href="https://www.linkedin.com/in/cristobal-sanchez-arisa/" target="_blank">
+                    <IconButton
+                      aria-label="linkedin"
+                      variant="ghost"
+                      size="lg"
+                      color={'whiteAlpha.800'}
+                      colorScheme="red"
+                      icon={<FaLinkedin size="28px" />}
+                      _hover={{
+                        bg: 'red.400',
+                        color: useColorModeValue('white', 'gray.700'),
+                      }}
+                      isRound
+                    />
+                  </Link>
+                </Tooltip>
               </Stack>
 
               <Box
@@ -180,58 +277,111 @@ function ContactSection({ state, fullpageApi }) {
                 shadow="base"
                 opacity={0.8}
               >
-                <VStack spacing={5} color={'white'} opacity={1}>
-                  <FormControl isRequired>
-                    <FormLabel>{t('name')}</FormLabel>
+                <form ref={form} onSubmit={handleSubmit(onSubmit)}>
+                  <VStack spacing={5} color={'white'} opacity={1}>
 
-                    <InputGroup>
-                      <InputLeftElement children={<BsPerson />} />
-                      <Input 
-                        type="text" 
-                        name="name" 
-                        placeholder={t('your_name')} 
+                    {/* NAME */}
+                    <FormControl isRequired isInvalid={errors.name}>
+                      <FormLabel htmlFor="name">{t('name')}</FormLabel>
+
+                      <InputGroup>
+                        <InputLeftElement children={<BsPerson />} />
+                        <Input 
+                          type="text" 
+                          name="name" 
+                          id="name" 
+                          placeholder={t('your_name')} 
+                          focusBorderColor={'red.400'}
+                          isRequired
+                          isReadOnly={isEmailSubmitting}
+                          {
+                            ...register('name', {
+                              required: t('required'),
+                              minLength: { value: 4, message: t('min_length') }
+                            })
+                          }
+                        />
+                      </InputGroup>
+
+                      <FormErrorMessage>
+                        {errors.name && errors.name.message}
+                      </FormErrorMessage>
+                    </FormControl>
+
+                    {/* EMAIL */}
+                    <FormControl isRequired isInvalid={errors.email}>
+                      <FormLabel htmlFor="email">{t('email')}</FormLabel>
+
+                      <InputGroup>
+                        <InputLeftElement children={<MdOutlineEmail />} />
+                        <Input
+                          type="email"
+                          name="email"
+                          id="email"
+                          placeholder={t('your_email')}
+                          focusBorderColor={'red.400'}
+                          isRequired
+                          isReadOnly={isEmailSubmitting}
+                          {
+                            ...register('email', {
+                              required: t('required'),
+                              minLength: { value: 4, message: t('min_length') },
+                              pattern: { 
+                                value: /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, 
+                                message: t('email_error')
+                              }
+                            })
+                          }
+                        />
+                      </InputGroup>
+
+                      <FormErrorMessage>
+                        {errors.email && errors.email.message}
+                      </FormErrorMessage>
+                    </FormControl>
+
+                    {/* MESSAGE */}
+                    <FormControl isRequired isInvalid={errors.message}>
+                      <FormLabel htmlFor="message">{t('message')}</FormLabel>
+
+                      <Textarea
+                        name="message"
+                        id="message"
+                        placeholder={t('your_message')}
+                        rows={6}
+                        resize="none"
                         focusBorderColor={'red.400'}
+                        isRequired
+                        isReadOnly={isEmailSubmitting}
+                        {
+                          ...register('message', {
+                            required: t('required'),
+                            minLength: { value: 4, message: t('min_length') }
+                          })
+                        }
                       />
-                    </InputGroup>
-                  </FormControl>
 
-                  <FormControl isRequired>
-                    <FormLabel>{t('email')}</FormLabel>
+                      <FormErrorMessage>
+                        {errors.message && errors.message.message}
+                      </FormErrorMessage>
+                    </FormControl>
 
-                    <InputGroup>
-                      <InputLeftElement children={<MdOutlineEmail />} />
-                      <Input
-                        type="email"
-                        name="email"
-                        placeholder={t('your_email')}
-                        focusBorderColor={'red.400'}
-                      />
-                    </InputGroup>
-                  </FormControl>
-
-                  <FormControl isRequired>
-                    <FormLabel>{t('message')}</FormLabel>
-
-                    <Textarea
-                      name="message"
-                      placeholder={t('your_message')}
-                      rows={6}
-                      resize="none"
-                      focusBorderColor={'red.400'}
-                    />
-                  </FormControl>
-
-                  <Button
-                    colorScheme="red"
-                    bg="red.400"
-                    color="white"
-                    _hover={{
-                      bg: 'red.500',
-                    }}
-                    isFullWidth>
-                    {t('send_message')}
-                  </Button>
-                </VStack>
+                    <Button
+                      type="submit"
+                      value="Send"
+                      colorScheme="red"
+                      bg="red.400"
+                      color="white"
+                      _hover={{
+                        bg: 'red.500',
+                      }}
+                      isFullWidth
+                      isLoading={isEmailSubmitting}
+                    >
+                      {t('send_message')}
+                    </Button>
+                  </VStack>
+                </form>
               </Box>
             </Stack>
           </VStack>
