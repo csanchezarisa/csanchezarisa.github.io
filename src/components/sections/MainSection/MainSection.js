@@ -12,31 +12,28 @@ import {
   useBreakpointValue,
 } from '@chakra-ui/react';
 import { TypeAnimation } from 'react-type-animation';
+import { Carousel } from "react-bootstrap";
 
 import './MainSection.css';
+import bitmoji1 from 'assets/media/bitmoji1.png';
+import bitmoji2 from 'assets/media/bitmoji2.png';
+import bitmoji3 from 'assets/media/bitmoji3.png';
+import bitmoji4 from 'assets/media/bitmoji4.png';
+import bitmoji5 from 'assets/media/bitmoji5.png';
+import bitmoji6 from 'assets/media/bitmoji6.png';
+import bitmoji7 from 'assets/media/bitmoji7.png';
+import bitmoji8 from 'assets/media/bitmoji8.png';
 
-/**
- * 
- * @returns 
- */
-function getRandomBitmoji() {
-  const bitmojis = [
-    'https://sdk.bitmoji.com/render/panel/20020855-99004936482_5-s5-v1.png?transparent=1&palette=1&scale=2',
-    'https://sdk.bitmoji.com/render/panel/20087902-99004936482_5-s5-v1.png?transparent=1&palette=1&scale=2',
-    'https://sdk.bitmoji.com/render/panel/20079939-99004936482_5-s5-v1.png?transparent=1&palette=1&scale=2',
-    'https://sdk.bitmoji.com/render/panel/20084663-99004936482_5-s5-v1.png?transparent=1&palette=1&scale=2',
-    'https://sdk.bitmoji.com/render/panel/10221182-99004936482_5-s5-v1.png?transparent=1&palette=1&scale=2',
-    'https://sdk.bitmoji.com/render/panel/20088153-99004936482_5-s5-v1.png?transparent=1&palette=1&scale=2',
-    'https://sdk.bitmoji.com/render/panel/10236265-99004936482_5-s5-v1.png?transparent=1&palette=1&scale=2',
-    'https://sdk.bitmoji.com/render/panel/20060362-99004936482_5-s5-v1.png?transparent=1&palette=1&scale=2'
-  ]
-
-  const randomPosition = Math.floor(
-    Math.random() * (bitmojis.length)
-  );
-
-  return bitmojis[randomPosition];
-}
+const bitmojis = [
+  bitmoji1,
+  bitmoji2,
+  bitmoji3,
+  bitmoji4,
+  bitmoji5,
+  bitmoji6,
+  bitmoji7,
+  bitmoji8
+]
 
 function MainSection({ 
   state = null, 
@@ -45,6 +42,7 @@ function MainSection({
   workSectionPosition = 1
 }) {
   const { t } = useTranslation();
+
   const typeAnimationSequence = [
     '<Csanchezarisa />', 800,
     '<Software_Engineer />', 1000,
@@ -145,13 +143,29 @@ function MainSection({
             overflow={'hidden'}
             className="gradient-background"
           >
-            <Image
-              alt={'Hero Image'}
-              align={'right'}
-              w={'100%'}
-              h={'100%'}
-              src={getRandomBitmoji()}
-            />
+            <Carousel
+              pause={false}
+              wrap={true}
+              touch={false}
+              keyboard={false}
+              indicators={false}
+              controls={false}
+            >
+              {bitmojis.map(img => {
+                return (
+                  <Carousel.Item>
+                    <Image
+                      alt={'Hero Image'}
+                      align={'right'}
+                      w={'100%'}
+                      h={'100%'}
+                      src={img}
+                      loading="eager"
+                    />
+                  </Carousel.Item>
+                )
+              })}
+            </Carousel>
           </Box>
         </Flex>
       </Stack>
