@@ -57,11 +57,12 @@ function MainSection({
     <Container maxW={'7xl'}>
       <Stack
         align={'center'}
-        spacing={{ base: 8, md: 10 }}
-        py={{ base: 20, md: 28 }}
+        verticalAlign={'center'}
+        spacing={{ base: 5, md: 10 }}
+        py={{ base: 5, md: 28 }}
         direction={{ base: 'column', md: 'row' }}
       >
-        <Stack flex={1} spacing={{ base: 5, md: 10 }}>
+        <Stack flex={1} spacing={{ base: 2, md: 10 }}>
           <Heading
             as="h1"
             lineHeight={1.1}
@@ -105,8 +106,8 @@ function MainSection({
             {t('presentation')}
           </Text>
           <Stack
-            spacing={{ base: 4, sm: 6 }}
-            direction={{ base: 'column', sm: 'row' }}>
+            spacing={{ base: 4, md: 6 }}
+            direction={{ base: 'column', md: 'row' }}>
             <Button
               rounded={'full'}
               size={'lg'}
