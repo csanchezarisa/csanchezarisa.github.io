@@ -47,7 +47,7 @@ function FullPage() {
                 <MainNavBar 
                   sections={Sections} 
                   fullpageApi={fullpageApi} 
-                  activeSection={activeSection} 
+                  activeSection={activeSection}
                 />
               </nav>
 
@@ -55,7 +55,11 @@ function FullPage() {
               {Sections.map(({Section, id}) => {
                 return (
                   <div className="section" key={id} id={id}>
-                    <Section state={state} fullpageApi={fullpageApi} />
+                    <Section 
+                      state={state} 
+                      fullpageApi={fullpageApi} 
+                      contactSectionPosition={Sections.findIndex(s => s.id === 'contact') + 2} 
+                    />
                   </div>
                 )
               })}

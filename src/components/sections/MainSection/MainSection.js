@@ -13,7 +13,11 @@ import {
 } from '@chakra-ui/react';
 import { TypeAnimation } from 'react-type-animation';
 
-function MainSection({ state, fullpageApi }) {
+function MainSection({ 
+  state = null, 
+  fullpageApi,
+  contactSectionPosition = 1
+}) {
   const { t } = useTranslation();
   const typeAnimationSequence = [
     '<Software_Engineer />', 1000,
@@ -91,7 +95,7 @@ function MainSection({ state, fullpageApi }) {
               rounded={'full'}
               size={'lg'}
               px={6}
-              onClick={() => fullpageApi.moveTo(4)}
+              onClick={() => fullpageApi.moveTo(contactSectionPosition)}
             >
               {t('contact_me')}
             </Button>

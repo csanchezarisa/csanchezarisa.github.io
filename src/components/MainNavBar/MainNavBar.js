@@ -10,7 +10,12 @@ import cookies from 'js-cookie';
 import './MainNavBar.css';
 import languages from '../../config/languages';
 
-function MainNavBar({ sections = [], state = null, fullpageApi, activeSection = '' }) {
+function MainNavBar({ 
+  sections = [], 
+  state = null, 
+  fullpageApi, 
+  activeSection = ''
+}) {
   const { t } = useTranslation();
 
   const currentLanguageCode = cookies.get('i18next') || 'es';
