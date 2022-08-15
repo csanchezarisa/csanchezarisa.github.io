@@ -19,5 +19,6 @@
   "email_sent_correctly_title": "Email enviado correctamente",
   "email_sent_correctly_message": "El email se ha enviado correctamente. En breves recibirá un email de confirmación.",
   "email_sent_error_title": "Error enviando el email",
-  "email_sent_error_message": "Ha habido un error enviando el email. Por favor, pruébelo de nuevo más tarde o contacte conmigo escribiéndome directamente."
+  "email_sent_error_message": "Ha habido un error enviando el email. Por favor, pruébelo de nuevo más tarde o contacte conmigo escribiéndome directamente.",
+  "work": "Trabajos"
 }

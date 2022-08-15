@@ -13,10 +13,36 @@ import {
 } from '@chakra-ui/react';
 import { TypeAnimation } from 'react-type-animation';
 
+import './MainSection.css';
+
+/**
+ * 
+ * @returns 
+ */
+function getRandomBitmoji() {
+  const bitmojis = [
+    'https://sdk.bitmoji.com/render/panel/20020855-99004936482_5-s5-v1.png?transparent=1&palette=1&scale=2',
+    'https://sdk.bitmoji.com/render/panel/20087902-99004936482_5-s5-v1.png?transparent=1&palette=1&scale=2',
+    'https://sdk.bitmoji.com/render/panel/20079939-99004936482_5-s5-v1.png?transparent=1&palette=1&scale=2',
+    'https://sdk.bitmoji.com/render/panel/20084663-99004936482_5-s5-v1.png?transparent=1&palette=1&scale=2',
+    'https://sdk.bitmoji.com/render/panel/10221182-99004936482_5-s5-v1.png?transparent=1&palette=1&scale=2',
+    'https://sdk.bitmoji.com/render/panel/20088153-99004936482_5-s5-v1.png?transparent=1&palette=1&scale=2',
+    'https://sdk.bitmoji.com/render/panel/10236265-99004936482_5-s5-v1.png?transparent=1&palette=1&scale=2',
+    'https://sdk.bitmoji.com/render/panel/20060362-99004936482_5-s5-v1.png?transparent=1&palette=1&scale=2'
+  ]
+
+  const randomPosition = Math.floor(
+    Math.random() * (bitmojis.length)
+  );
+
+  return bitmojis[randomPosition];
+}
+
 function MainSection({ 
   state = null, 
   fullpageApi,
-  contactSectionPosition = 1
+  contactSectionPosition = 1,
+  workSectionPosition = 1
 }) {
   const { t } = useTranslation();
   const typeAnimationSequence = [
@@ -89,8 +115,10 @@ function MainSection({
               px={6}
               colorScheme={'red'}
               bg={'red.400'}
-              _hover={{ bg: 'red.500' }}>
-              Get started
+              _hover={{ bg: 'red.500' }}
+              onClick={() => fullpageApi.moveTo(workSectionPosition)}
+            >
+              {t('work')}
             </Button>
             <Button
               rounded={'full'}
@@ -110,20 +138,19 @@ function MainSection({
           w={'full'}>
           <Box
             position={'relative'}
-            height={'300px'}
+            height={'full'}
             rounded={'2xl'}
             boxShadow={'2xl'}
             width={'full'}
-            overflow={'hidden'}>
+            overflow={'hidden'}
+            className="gradient-background"
+          >
             <Image
               alt={'Hero Image'}
-              fit={'cover'}
-              align={'center'}
+              align={'right'}
               w={'100%'}
               h={'100%'}
-              src={
-                'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=800&q=80'
-              }
+              src={getRandomBitmoji()}
             />
           </Box>
         </Flex>
