@@ -3,7 +3,6 @@ import {
   Container,
   Stack,
   Text,
-  useColorModeValue,
   Image,
 } from '@chakra-ui/react';
 import cookies from 'js-cookie';
@@ -15,7 +14,12 @@ import { changeLanguage } from 'i18next';
 import './Footer.css';
 import languages from '../../config/languages';
 
-function Footer({ sections = [], state = null, fullpageApi, activeSection = '' }) {
+function Footer({ 
+  sections = [], 
+  state = null, 
+  fullpageApi, 
+  activeSection = '' 
+}) {
   const { t } = useTranslation();
 
   const currentLanguageCode = cookies.get('i18next') || 'es';
@@ -25,8 +29,8 @@ function Footer({ sections = [], state = null, fullpageApi, activeSection = '' }
 
   return (
     <Box
-      bg={useColorModeValue('#212529', '#212529')}
-      color={useColorModeValue('white', 'gray.200')}>
+      bg={'#212529'}
+      color={'white'}>
       <Container
         as={Stack}
         maxW={'6xl'}
@@ -114,7 +118,7 @@ function Footer({ sections = [], state = null, fullpageApi, activeSection = '' }
       <Box
         borderTopWidth={1}
         borderStyle={'solid'}
-        borderColor={useColorModeValue('gray.200', 'gray.700')}>
+        borderColor={'gray.200'}>
         <Container
           as={Stack}
           maxW={'7xl'}

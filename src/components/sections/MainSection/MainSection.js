@@ -20,6 +20,7 @@ function MainSection({
 }) {
   const { t } = useTranslation();
   const typeAnimationSequence = [
+    '<Csanchezarisa />', 800,
     '<Software_Engineer />', 1000,
     '<Developer />', 800,
     '<Coffee_Addict />', 1000,
