@@ -19,5 +19,6 @@
   "email_sent_correctly_title": "Email sent successfully",
   "email_sent_correctly_message": "The email has been sent correctly. You will receive a confirmation email shortly.",
   "email_sent_error_title": "Error sending the email",
-  "email_sent_error_message": "There has been an error sending the email. Please try again later or contact me directly."
+  "email_sent_error_message": "There has been an error sending the email. Please try again later or contact me directly.",
+  "work": "Trabajos"
 }
