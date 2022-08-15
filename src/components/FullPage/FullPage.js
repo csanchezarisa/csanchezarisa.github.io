@@ -4,11 +4,11 @@ import { useTranslation } from "react-i18next";
 import { SlideFade } from '@chakra-ui/react';
 
 import './FullPage.css';
-import MainNavBar from '../MainNavBar/MainNavBar';
-import MainSection from '../sections/MainSection/MainSection';
-import ContactSection from '../sections/ContactSection/ContactSection';
-import Footer from '../Footer/Footer';
-import { fullpageApiLicense } from '../../config/licenses';
+import MainNavBar from 'components/MainNavBar/MainNavBar';
+import MainSection from 'components/sections/MainSection/MainSection';
+import ContactSection from 'components/sections/ContactSection/ContactSection';
+import Footer from 'components/Footer/Footer';
+import { fullpageApiLicense } from 'config/licenses';
 
 
 function FullPage() {

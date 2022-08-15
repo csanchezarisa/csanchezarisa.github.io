@@ -8,7 +8,7 @@ import { useTranslation } from "react-i18next";
 import cookies from 'js-cookie';
 
 import './MainNavBar.css';
-import languages from '../../config/languages';
+import languages from 'config/languages';
 
 function MainNavBar({ 
   sections = [], 

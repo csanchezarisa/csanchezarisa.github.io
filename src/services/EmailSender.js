@@ -1,6 +1,6 @@
 import emailjs from '@emailjs/browser';
 
-import { emailjsConfig } from '../config/licenses';
+import { emailjsConfig } from 'config/licenses';
 
 function sendForm(form) {
 

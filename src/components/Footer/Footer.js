@@ -12,7 +12,7 @@ import { useTranslation } from 'react-i18next';
 import { changeLanguage } from 'i18next';
 
 import './Footer.css';
-import languages from '../../config/languages';
+import languages from 'config/languages';
 
 function Footer({ 
   sections = [], 

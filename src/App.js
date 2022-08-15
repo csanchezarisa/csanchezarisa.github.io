@@ -2,8 +2,8 @@ import React, { Suspense, useState } from 'react';
 import { ChakraProvider, Fade } from '@chakra-ui/react';
 
 import './App.css';
-import Loading from './components/Loading/Loading';
-const FullPage = React.lazy(() => import('./components/FullPage/FullPage'));
+import Loading from 'components/Loading/Loading';
+const FullPage = React.lazy(() => import('components/FullPage/FullPage'));
 
 function App() {
   const [isLoaded, changeIsLoaded] = useState(false);

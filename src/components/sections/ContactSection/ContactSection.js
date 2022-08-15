@@ -27,7 +27,7 @@ import {
   useToast,
 } from '@chakra-ui/react';
 
-import sendForm from "../../../services/EmailSender";
+import sendForm from "services/EmailSender";
 
 const confetti = {
   light: {
