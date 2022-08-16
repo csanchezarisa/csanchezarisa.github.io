@@ -12,5 +12,13 @@
   "your_message": "Tu Mensaje",
   "send_message": "Enviar Mensaje",
   "copy_email": "Copia el Email",
-  "email_copied": "Email Copiado!"
+  "email_copied": "Email Copiado!",
+  "required": "Es requerido",
+  "min_length": "La longitud mínima debe ser 4",
+  "email_error": "No es un email válido",
+  "email_sent_correctly_title": "Email enviado correctamente",
+  "email_sent_correctly_message": "El email se ha enviado correctamente. En breves recibirá un email de confirmación.",
+  "email_sent_error_title": "Error enviando el email",
+  "email_sent_error_message": "Ha habido un error enviando el email. Por favor, pruébelo de nuevo más tarde o contacte conmigo escribiéndome directamente.",
+  "work": "Trabajos"
 }

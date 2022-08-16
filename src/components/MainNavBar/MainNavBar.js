@@ -7,22 +7,15 @@ import { changeLanguage } from 'i18next';
 import { useTranslation } from "react-i18next";
 import cookies from 'js-cookie';
 
-import './MainNavBar.css'
+import './MainNavBar.css';
+import languages from 'config/languages';
 
-const languages = [
-  {
-    code: 'en',
-    name: 'English',
-    country_code: 'gb'
-  },
-  {
-    code: 'es',
-    name: 'Español',
-    country_code: 'es'
-  }
-]
-
-function MainNavBar({ sections = [], state = null, fullpageApi, activeSection = '' }) {
+function MainNavBar({ 
+  sections = [], 
+  state = null, 
+  fullpageApi, 
+  activeSection = ''
+}) {
   const { t } = useTranslation();
 
   const currentLanguageCode = cookies.get('i18next') || 'es';
@@ -41,7 +34,10 @@ function MainNavBar({ sections = [], state = null, fullpageApi, activeSection = 
     >
       <Container>
         {/* LOGO */}
-        <Navbar.Brand href="/">
+        <Navbar.Brand 
+          style={{ cursor: 'pointer' }}
+          onClick={() => fullpageApi.moveTo(1)}
+        >
           <img
             src="https://www.gravatar.com/avatar/9fe92a893b3879a72ea0c451d504a3fb?s=30"
             className="logo d-inline-block align-top"

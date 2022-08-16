@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import ReactFullpage from '@fullpage/react-fullpage';
 import { useTranslation } from "react-i18next";
+import { SlideFade } from '@chakra-ui/react';
 
 import './FullPage.css';
-import MainNavBar from '../MainNavBar/MainNavBar';
-import MainSection from '../sections/MainSection';
-import ContactSection from '../sections/ContactSection';
-import Footer from '../Footer/Footer';
-import { SlideFade } from '@chakra-ui/react';
+import MainNavBar from 'components/MainNavBar/MainNavBar';
+import MainSection from 'components/sections/MainSection/MainSection';
+import ContactSection from 'components/sections/ContactSection/ContactSection';
+import Footer from 'components/Footer/Footer';
+import { fullpageApiLicense } from 'config/licenses';
 
 
 function FullPage() {
@@ -31,11 +32,10 @@ function FullPage() {
       unmountOnExit={true}
     >
       <ReactFullpage
-        licenseKey="gplv3-license"
+        licenseKey={fullpageApiLicense}
         scrollingSpeed={300}
         sectionsColor={'#282c34,'.repeat(Sections.length + 2).split(',')}
-        normalScrollElements='.footer'
-        fixedElements='.footer'
+        normalScrollElements='#footer, #menu'
         afterLoad={(_origin, destination) => changeActiveSection(destination.item.id)}
 
         render={({ state, fullpageApi }) => {
@@ -43,21 +43,33 @@ function FullPage() {
             <ReactFullpage.Wrapper>
               {/* Navbar */}
               <nav id="menu" className='section fp-auto-height'>
-                <MainNavBar sections={Sections} fullpageApi={fullpageApi} activeSection={activeSection} />
+                <MainNavBar 
+                  sections={Sections} 
+                  fullpageApi={fullpageApi} 
+                  activeSection={activeSection}
+                />
               </nav>
 
               {/* Sections */}
               {Sections.map(({Section, id}) => {
                 return (
                   <div className="section" key={id} id={id}>
-                    <Section state={state} fullpageApi={fullpageApi} />
+                    <Section 
+                      state={state} 
+                      fullpageApi={fullpageApi} 
+                      contactSectionPosition={Sections.findIndex(s => s.id === 'contact') + 2} 
+                    />
                   </div>
                 )
               })}
 
               {/* Footer */}
               <footer id="footer" className="section fp-auto-height">
-                <Footer sections={Sections} fullpageApi={fullpageApi} />
+                <Footer 
+                  sections={Sections} 
+                  fullpageApi={fullpageApi} 
+                  activeSection={activeSection} 
+                />
               </footer>
             </ReactFullpage.Wrapper>
           );
