@@ -1,12 +1,6 @@
 # Personal portfolio web app
 
-<div style="margin-bottom: 1rem">
-  <img width="128" alt="csanchezarisa icon" src="https://gravatar.com/avatar/9fe92a893b3879a72ea0c451d504a3fb?s=128" style="border-radius: 50%; vertical-align: middle; inline-block"/>
-  &emsp;
-  <img width="64" alt="plus icon" src="https://cdn.iconscout.com/icon/free/png-256/plus-106-444919.png" style="vertical-align: middle; inline-block" />
-  &emsp;
-  <img width="128" alt="React-icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/512px-React-icon.svg.png" style="vertical-align: middle; inline-block" />
-</div>
+<img height="128" alt="Csanchezarisa + React" src="Csanchezarisa+React.png">
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). 
 It's made with React, using very cool and fancy libraries such as [fullpage.js](https://alvarotrigo.com/fullPage/), [Chakra UI](https://chakra-ui.com/), [React-Bootstrap](https://react-bootstrap.github.io/) and [EmailJS](https://www.emailjs.com/). 
