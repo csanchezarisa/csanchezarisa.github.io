@@ -35,8 +35,7 @@ function FullPage() {
         licenseKey={fullpageApiLicense}
         scrollingSpeed={300}
         sectionsColor={'#282c34,'.repeat(Sections.length + 2).split(',')}
-        normalScrollElements='.footer'
-        fixedElements='.footer'
+        normalScrollElements='#footer, #menu'
         afterLoad={(_origin, destination) => changeActiveSection(destination.item.id)}
 
         render={({ state, fullpageApi }) => {

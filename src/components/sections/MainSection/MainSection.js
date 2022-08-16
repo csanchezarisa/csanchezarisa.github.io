@@ -33,7 +33,17 @@ const bitmojis = [
   bitmoji6,
   bitmoji7,
   bitmoji8
-]
+].sort(() => 0.5 - Math.random());
+
+const typeAnimationSequence = [
+  '<Csanchezarisa />', 800,
+  '<Software_Engineer />', 1000,
+  '<Developer />', 800,
+  '<Coffee_Addict />', 1000,
+  '<Student />', 800,
+  '<Full_Stack />', 1000,
+  '<Junior />', 800,
+];
 
 function MainSection({ 
   state = null, 
@@ -42,16 +52,6 @@ function MainSection({
   workSectionPosition = 1
 }) {
   const { t } = useTranslation();
-
-  const typeAnimationSequence = [
-    '<Csanchezarisa />', 800,
-    '<Software_Engineer />', 1000,
-    '<Developer />', 800,
-    '<Coffee_Addict />', 1000,
-    '<Student />', 800,
-    '<Full_Stack />', 1000,
-    '<Junior />', 800,
-  ]
 
   return (
     <Container maxW={'7xl'}>
@@ -105,8 +105,8 @@ function MainSection({
             {t('presentation')}
           </Text>
           <Stack
-            spacing={{ base: 4, sm: 6 }}
-            direction={{ base: 'column', sm: 'row' }}>
+            spacing={{ base: 4, md: 6 }}
+            direction={{ base: 'column', md: 'row' }}>
             <Button
               rounded={'full'}
               size={'lg'}
@@ -151,9 +151,9 @@ function MainSection({
               indicators={false}
               controls={false}
             >
-              {bitmojis.map(img => {
+              {bitmojis.map((img, index) => {
                 return (
-                  <Carousel.Item>
+                  <Carousel.Item key={index}>
                     <Image
                       alt={'Hero Image'}
                       align={'right'}
