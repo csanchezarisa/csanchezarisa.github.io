@@ -5,11 +5,9 @@ import {
   Stack,
   Flex,
   Box,
-  Heading,
   Text,
   Button,
   Image,
-  useBreakpointValue,
 } from '@chakra-ui/react';
 import { TypeAnimation } from 'react-type-animation';
 import { Carousel } from "react-bootstrap";
@@ -23,6 +21,7 @@ import bitmoji5 from 'assets/media/bitmoji5.png';
 import bitmoji6 from 'assets/media/bitmoji6.png';
 import bitmoji7 from 'assets/media/bitmoji7.png';
 import bitmoji8 from 'assets/media/bitmoji8.png';
+import Title from "components/Title/Title";
 
 const bitmojis = [
   bitmoji1,
@@ -45,6 +44,18 @@ const typeAnimationSequence = [
   '<Junior />', 800,
 ];
 
+function TypeAnimationSubtitle() {
+  return (
+    <TypeAnimation 
+      sequence={typeAnimationSequence}
+      cursor={true}
+      repeat={Infinity}
+      wrapper="div"
+      speed={25}
+    />
+  );
+}
+
 function MainSection({ 
   state = null, 
   fullpageApi,
@@ -62,45 +73,11 @@ function MainSection({
         direction={{ base: 'column', md: 'row' }}
       >
         <Stack flex={1} spacing={{ base: 5, md: 10 }}>
-          <Heading
-            as="h1"
-            lineHeight={1.1}
-            fontWeight={600}
-            fontSize={{ base: '3xl', sm: '4xl', lg: '6xl' }}
-          >
-            <Text
-              as={'span'}
-              color={'white'}
-              position={'relative'}
-              zIndex={1}
-              _after={{
-                content: "''",
-                width: 'full',
-                height: useBreakpointValue({ base: '20%', md: '30%' }),
-                position: 'absolute',
-                bottom: 1,
-                left: 0,
-                bg: 'red.400',
-                zIndex: -1,
-              }}
-            >
-              Cristóbal,
-            </Text>
-            <br />
-            <Text 
-              as={'code'} 
-              color={'red.400'} 
-              fontSize={{ base: '2xl', sm: '3xl', lg: '5xl' }}
-            >
-              <TypeAnimation 
-                sequence={typeAnimationSequence}
-                cursor={true}
-                repeat={Infinity}
-                wrapper="div"
-                speed={25}
-              />
-              </Text>
-          </Heading>
+          <Title 
+            title="Cristóbal,"
+            subtitle={TypeAnimationSubtitle()}
+            textAlign="start"
+          />
           <Text color={'gray.300'}>
             {t('presentation')}
           </Text>
