@@ -7,7 +7,8 @@ import React from 'react';
 
 function Title({ 
   title = 'Title component', 
-  subtitle = null
+  subtitle = null,
+  padding = null
 }) {
   const breakpointValue = useBreakpointValue({ base: '20%', md: '30%' });
 
@@ -18,6 +19,7 @@ function Title({
     fontWeight={600}
     fontSize={{ base: '3xl', sm: '4xl', lg: '6xl' }}
     color={'white'}
+    pb={padding}
   >
     {title && (
       <Text
@@ -39,6 +41,7 @@ function Title({
       {title}
       </Text>
     )}
+    <br />
     {subtitle && (
       <Text 
         as={'code'} 

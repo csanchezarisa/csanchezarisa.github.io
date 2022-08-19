@@ -8,6 +8,7 @@ import {
   Text,
   Button,
   Image,
+  Code,
 } from '@chakra-ui/react';
 import { TypeAnimation } from 'react-type-animation';
 import { Carousel } from "react-bootstrap";
@@ -46,13 +47,19 @@ const typeAnimationSequence = [
 
 function TypeAnimationSubtitle() {
   return (
-    <TypeAnimation 
-      sequence={typeAnimationSequence}
-      cursor={true}
-      repeat={Infinity}
-      wrapper="div"
-      speed={25}
-    />
+    <Code 
+      colorScheme={'red'}
+      fontSize={{ base: '2xl', sm: '3xl', lg: '5xl' }}
+      rounded={'2xl'}
+    >
+      <TypeAnimation 
+        sequence={typeAnimationSequence}
+        cursor={true}
+        repeat={Infinity}
+        wrapper="div"
+        speed={25}
+      />
+    </Code>
   );
 }
 
