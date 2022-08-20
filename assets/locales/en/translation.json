@@ -23,5 +23,11 @@
   "work": "Trabajos",
   "about_me": "About Me",
   "personal_info": "Personal information",
-  "profesional_info": "Profesional information"
+  "profesional_info": "Profesional information",
+  "my_stack": "My Stack",
+  "backend": "Backend",
+  "frontend": "Frontend",
+  "database": "Database",
+  "devops_and_cloud": "DevOps and Cloud",
+  "click_stack_btn": "Click to show {key} stack"
 }
