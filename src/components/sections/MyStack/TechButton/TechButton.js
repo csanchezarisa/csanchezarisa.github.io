@@ -4,14 +4,20 @@ import {
 } from '@chakra-ui/react';
 import React from 'react';
 import { 
+  SiAmazonaws,
   SiAngular, 
   SiBootstrap, 
   SiDjango, 
+  SiDocker, 
   SiElasticsearch, 
   SiExpress, 
   SiFlask, 
+  SiGithubactions, 
+  SiJenkins, 
   SiKibana, 
+  SiKubernetes, 
   SiLaravel, 
+  SiMicrosoftazure, 
   SiMicrosoftsqlserver, 
   SiMongodb, 
   SiMysql, 
@@ -211,5 +217,60 @@ export const KibanaButton = () => (
     icon={<SiKibana />}
     bgHover='rgba(0, 85, 113, 0.48)'
     bgActive='rgba(0, 85, 113, 0.64)'
+  />
+);
+
+export const AWSButton = () => (
+  <TechButton
+    label='Amazon Web Services'
+    icon={<SiAmazonaws />}
+    bgHover='rgba(255, 153, 0, 0.48)'
+    bgActive='rgba(255, 153, 0, 0.64)'
+  />
+);
+
+export const AzureButton = () => (
+  <TechButton
+    label='Microsoft Azure'
+    icon={<SiMicrosoftazure />}
+    bgHover='rgba(0, 127, 255, 0.48)'
+    bgActive='rgba(0, 127, 255, 0.64)'
+  />
+);
+
+export const DockerButton = () => (
+  <TechButton
+    label='Docker'
+    icon={<SiDocker />}
+    bgHover='rgba(13, 183, 237, 0.48)'
+    bgActive='rgba(13, 183, 237, 0.64)'
+  />
+);
+
+export const KubernetesButton = () => (
+  <TechButton
+    label='Kubernetes'
+    icon={<SiKubernetes />}
+    bgHover='rgba(50, 108, 229, 0.48)'
+    bgActive='rgba(50, 108, 229, 0.64)'
+  />
+);
+
+
+export const GithubactionsButton = () => (
+  <TechButton
+    label='Github Actions'
+    icon={<SiGithubactions />}
+    bgHover='rgba(26, 137, 255, 0.48)'
+    bgActive='rgba(26, 137, 255, 0.64)'
+  />
+);
+
+export const JenkinsButton = () => (
+  <TechButton
+    label='Jenkins'
+    icon={<SiJenkins />}
+    bgHover='rgba(211, 56, 52, 0.48)'
+    bgActive='rgba(211, 56, 52, 0.64)'
   />
 );

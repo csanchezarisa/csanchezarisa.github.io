@@ -24,13 +24,19 @@ import './MyStack.css';
 import Title from "components/Title/Title";
 import { 
   AngularButton,
+  AWSButton,
+  AzureButton,
   BootstrapButton,
   DjangoButton, 
+  DockerButton, 
   ElasticsearchButton, 
   ExpressButton, 
   FlaskButton, 
+  GithubactionsButton, 
   GraphDbButton, 
+  JenkinsButton, 
   KibanaButton, 
+  KubernetesButton, 
   LaravelButton, 
   MicrosoftSqlButton, 
   MongoDbButton, 
@@ -83,7 +89,14 @@ const stacks = [
     id: 'devops',
     title: 'devops_and_cloud',
     icon: (<FiCloud />),
-    items: []
+    items: [
+      <AWSButton />,
+      <AzureButton />,
+      <DockerButton />,
+      <KubernetesButton />,
+      <GithubactionsButton />,
+      <JenkinsButton />,
+    ]
   }
 ];
 
