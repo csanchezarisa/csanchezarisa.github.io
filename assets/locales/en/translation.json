@@ -29,5 +29,6 @@
   "frontend": "Frontend",
   "database": "Database",
   "devops_and_cloud": "DevOps and Cloud",
-  "click_stack_btn": "Click to show {key} stack"
+  "click_stack_btn": "Click to show {key} stack",
+  "my_stack_presentation": "Do you want to know my tech stack with the languages and tools that I use?"
 }
