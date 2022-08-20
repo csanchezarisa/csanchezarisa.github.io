@@ -6,6 +6,7 @@ import { SlideFade } from '@chakra-ui/react';
 import './FullPage.css';
 import MainNavBar from 'components/MainNavBar/MainNavBar';
 import MainSection from 'components/sections/MainSection/MainSection';
+import Work from 'components/sections/Work/Work';
 import ContactSection from 'components/sections/ContactSection/ContactSection';
 import Footer from 'components/Footer/Footer';
 import { fullpageApiLicense } from 'config/licenses';
@@ -23,6 +24,7 @@ function FullPage() {
 
   const Sections = [
     { Section: MainSection, id: 'main', name: 'Hero' },
+    { Section: Work, id: 'work', name: t('work') },
     { Section: ContactSection, id: 'contact', name: t('contact_me') },
   ]
 
