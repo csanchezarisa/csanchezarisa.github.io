@@ -1,7 +1,6 @@
 import { 
   Box, 
   Button, 
-  Collapse, 
   Container, 
   HStack, 
   Stack, 
@@ -19,54 +18,111 @@ import {
   FiMonitor, 
   FiServer 
 } from 'react-icons/fi';
+import { Card, Col, Collapse, Row } from "react-bootstrap";
 
 import './MyStack.css';
 import Title from "components/Title/Title";
+import { 
+  AngularButton,
+  BootstrapButton,
+  DjangoButton, 
+  ElasticsearchButton, 
+  ExpressButton, 
+  FlaskButton, 
+  GraphDbButton, 
+  KibanaButton, 
+  LaravelButton, 
+  MicrosoftSqlButton, 
+  MongoDbButton, 
+  MySqlButton, 
+  PostgreSqlButton, 
+  PugButton, 
+  ReactButton, 
+  SpringButton 
+} from "./TechButton/TechButton";
 
 const stacks = [
   {
     id: 'backend',
     title: 'backend',
-    icon: (<FiServer />)
+    icon: (<FiServer />),
+    items: [
+      <SpringButton />,
+      <FlaskButton />,
+      <DjangoButton />,
+      <ExpressButton />,
+      <LaravelButton />,
+    ]
   },
   {
     id: 'frontend',
     title: 'frontend',
-    icon: (<FiMonitor />)
+    icon: (<FiMonitor />),
+    items: [
+      <AngularButton />,
+      <ReactButton />,
+      <BootstrapButton />,
+      <PugButton />,
+    ]
   },
   {
     id: 'database',
     title: 'database',
-    icon: (<FiDatabase />)
+    icon: (<FiDatabase />),
+    items: [
+      <MySqlButton />,
+      <MicrosoftSqlButton />,
+      <PostgreSqlButton />,
+      <MongoDbButton />,
+      <GraphDbButton />,
+      <ElasticsearchButton />,
+      <KibanaButton />,
+    ]
   },
   {
     id: 'devops',
     title: 'devops_and_cloud',
-    icon: (<FiCloud />)
+    icon: (<FiCloud />),
+    items: []
   }
 ];
 
-function CollapsedStack(openStack) {
+function StackInfo(stack, t) {
   return (
-    <Collapse in={openStack.open} animateOpacity>
       <Box
-        p='40px'
-        color='white'
-        mt='4'
-        bg='teal.500'
-        rounded='md'
-        shadow='md'
+        position={'relative'}
+        height={'full'}
+        rounded={'2xl'}
+        boxShadow={'2xl'}
+        width={'full'}
+        overflow={'hidden'}
+        key={stack.id}
+        id={`stack-${stack.id}-info`}
       >
-        Hola que tal
+        <Card className="stack-gradient-background">
+          <Card.Body>
+            <Card.Title>
+              {`${t(stack.title)} stack`} 
+            </Card.Title>
+            <Row>
+              {stack.items.map((item, index) => {
+                return (
+                  <Col key={index}>
+                    {item}
+                  </Col>
+                );
+              })}
+            </Row>
+          </Card.Body>
+        </Card>
       </Box>
-    </Collapse>
   );
 }
 
 function MyStack() {
   const { t } = useTranslation();
 
-  const [openStack, changeOpenStack] = useState({ open: false, stack: null })
+  const [openStack, changeOpenStack] = useState({ open: false, stack: stacks[0] });
 
   return (
     <Container maxW={'full'} textAlign="center">
@@ -77,10 +133,16 @@ function MyStack() {
         direction={{ base: 'column', md: 'row' }}
       >
         <Stack flex={1} spacing={{ base: 5, md: 10 }}>
+
+          {/* TITLE */}
           <Title title={t('my_stack')} />
+
+          {/* PRESENTATION */}
           <Text color={'gray.300'}>
-            {t('presentation')}
+            {t('my_stack_presentation')}
           </Text>
+
+          {/* TECH STACK BOX */}
           <Box
             bg={'#343a40'}
             borderRadius="lg"
@@ -92,7 +154,9 @@ function MyStack() {
             <HStack
               flex={1} 
               spacing={{ base: 5, md: 10 }}
+              height='full'
             >
+              {/* TECH STACK CATEGORIES */}
               <VStack 
                 flex={1} 
                 spacing={{ base: 5, md: 10 }}
@@ -129,7 +193,19 @@ function MyStack() {
                   );
                 })}
               </VStack>
-              {openStack.open && CollapsedStack(openStack)}
+
+              {/* TECH STACK INFO */}
+              <Collapse 
+                in={openStack.open} 
+                dimension='width'
+                mountOnEnter='true'
+                unmountOnExit='true'
+                style={{
+                  height: '100%'
+                }}
+              >
+                {StackInfo(openStack.stack, t)}
+              </Collapse>
             </HStack>
           </Box>
         </Stack>
