@@ -1,5 +1,12 @@
 import { 
   IconButton, 
+  Popover, 
+  PopoverArrow, 
+  PopoverBody, 
+  PopoverCloseButton, 
+  PopoverContent, 
+  PopoverHeader, 
+  PopoverTrigger, 
   Tooltip 
 } from '@chakra-ui/react';
 import React from 'react';
@@ -42,9 +49,9 @@ const GraphDbSvg = ({ height = '18px', width = '18px' }) => {
       </g>
     </svg>
   );
-}
+};
 
-function TechButton({ 
+function TechButton({
   label,
   colorScheme = 'whiteAlpha',
   color = 'black',
@@ -54,26 +61,57 @@ function TechButton({
   size = { base: 'lg' }
 }) {
   return (
-    <Tooltip
-      label={label}
-      closeOnClick={true}
-      hasArrow='true'
-      placement='auto'
-      bg='gray.200'
-      color='#1A202C'
-    >
-      <IconButton
-        color={color}
-        size={size}
-        aria-label={label}
-        icon={icon}
-        colorScheme={colorScheme}
-        _hover={{ bg: bgHover }}
-        _active={{ bg: bgActive }}
-        m={1}
-      />
-    </Tooltip>
-  )
+    <>
+      <Tooltip
+        label={label}
+        closeOnClick={true}
+        hasArrow='true'
+        placement='top'
+        bg='gray.200'
+        color='#1A202C'
+      >
+        <div>
+          <Popover
+            computePositionOnMount={true}
+            flip={true}
+            preventOverflow={true}
+            strategy={'fixed'}
+            trigger={'click'}
+            isLazy={true}
+          >
+            <PopoverTrigger>
+
+              {/* ICON BUTTON */}
+              <IconButton
+                color={color}
+                size={size}
+                aria-label={label}
+                icon={icon}
+                colorScheme={colorScheme}
+                _hover={{ bg: bgHover }}
+                _active={{ bg: bgActive }}
+                m={1}
+              />
+            </PopoverTrigger>
+            <PopoverContent>
+              <PopoverArrow />
+              <PopoverCloseButton />
+
+              {/* POPOVER HEADER */}
+              <PopoverHeader color={'#1A202C'}>
+                {label}
+              </PopoverHeader>
+
+              {/* POPOVER BODY */}
+              <PopoverBody color={'#1A202C'}>
+                {label}
+              </PopoverBody>
+            </PopoverContent>
+          </Popover>
+        </div>
+      </Tooltip>
+    </>
+  );
 }
 
 export const SpringButton = () => (
