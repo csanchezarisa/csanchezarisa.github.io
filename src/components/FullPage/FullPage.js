@@ -60,6 +60,7 @@ function FullPage() {
                       state={state} 
                       fullpageApi={fullpageApi} 
                       contactSectionPosition={Sections.findIndex(s => s.id === 'contact') + 2} 
+                      workSectionPosition={Sections.findIndex(s => s.id === 'stack') + 2} 
                     />
                   </div>
                 )

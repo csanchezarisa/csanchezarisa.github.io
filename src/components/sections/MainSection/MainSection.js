@@ -100,7 +100,7 @@ function MainSection({
               _hover={{ bg: 'red.500' }}
               onClick={() => fullpageApi.moveTo(workSectionPosition)}
             >
-              {t('work')}
+              {t('my_stack')}
             </Button>
             <Button
               rounded={'full'}
