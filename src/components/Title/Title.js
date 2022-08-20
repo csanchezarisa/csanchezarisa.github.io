@@ -38,13 +38,13 @@ function Title({
         zIndex: -1,
       }}
       >
-      {title}
+        {title}
       </Text>
     )}
-    <br />
+    {title && subtitle && (<br />)}
     {subtitle && (
       <Text 
-        as={'code'} 
+        as={'span'} 
         color={'red.400'} 
         fontSize={{ base: '2xl', sm: '3xl', lg: '5xl' }}
       >

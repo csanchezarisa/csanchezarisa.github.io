@@ -21,5 +21,13 @@
   "email_sent_error_title": "Error sending the email",
   "email_sent_error_message": "There has been an error sending the email. Please try again later or contact me directly.",
   "work": "Trabajos",
-  "about_me": "About Me"
+  "about_me": "About Me",
+  "personal_info": "Personal information",
+  "profesional_info": "Profesional information",
+  "my_stack": "My Stack",
+  "backend": "Backend",
+  "frontend": "Frontend",
+  "database": "Database",
+  "devops_and_cloud": "DevOps and Cloud",
+  "click_stack_btn": "Click to show {key} stack"
 }
