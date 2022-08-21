@@ -769,21 +769,14 @@ export const AWSButton = () => {
 
   const description = (
     <Text>
-      {t('spring_description')}
-      &nbsp;
-      <Button
-        leftIcon={<SiJava />}
-        bg='rgba(248, 152, 32, 0.36)'
-        _hover={{ bg: 'rgba(248, 152, 32, 0.48)' }}
-        _active={{ bg: 'rgba(248, 152, 32, 0.64)' }}
-        m={1}
-        onClick={() => openUrlInNewTab('https://www.java.com/')}
-      >
-        {t('java_platform')}
-      </Button>
+
+      {/* DESCRIPTION */}
+      {t('aws_description')}
       <br />
+
+      {/* WEB CITE */}
       <cite>
-        <Link href='https://en.wikipedia.org/wiki/Spring_Framework' isExternal>
+        <Link href='https://en.wikipedia.org/wiki/Amazon_Web_Services' isExternal>
           Wikipedia <Icon as={FiExternalLink} mx='2px' />
         </Link>
       </cite>
@@ -798,6 +791,7 @@ export const AWSButton = () => {
       icon={<SiAmazonaws />}
       bgHover='rgba(255, 153, 0, 0.48)'
       bgActive='rgba(255, 153, 0, 0.64)'
+      infoUrl='https://aws.amazon.com/'
     />
   );
 };
@@ -807,21 +801,14 @@ export const AzureButton = () => {
 
   const description = (
     <Text>
-      {t('spring_description')}
-      &nbsp;
-      <Button
-        leftIcon={<SiJava />}
-        bg='rgba(248, 152, 32, 0.36)'
-        _hover={{ bg: 'rgba(248, 152, 32, 0.48)' }}
-        _active={{ bg: 'rgba(248, 152, 32, 0.64)' }}
-        m={1}
-        onClick={() => openUrlInNewTab('https://www.java.com/')}
-      >
-        {t('java_platform')}
-      </Button>
+
+      {/* DESCRIPTION */}
+      {t('azure_description')}
       <br />
+
+      {/* WEB CITE */}
       <cite>
-        <Link href='https://en.wikipedia.org/wiki/Spring_Framework' isExternal>
+        <Link href='https://en.wikipedia.org/wiki/Microsoft_Azure' isExternal>
           Wikipedia <Icon as={FiExternalLink} mx='2px' />
         </Link>
       </cite>
@@ -836,6 +823,7 @@ export const AzureButton = () => {
       icon={<SiMicrosoftazure />}
       bgHover='rgba(0, 127, 255, 0.48)'
       bgActive='rgba(0, 127, 255, 0.64)'
+      infoUrl='https://azure.microsoft.com/'
     />
   );
 };
@@ -845,21 +833,14 @@ export const DockerButton = () => {
 
   const description = (
     <Text>
-      {t('spring_description')}
-      &nbsp;
-      <Button
-        leftIcon={<SiJava />}
-        bg='rgba(248, 152, 32, 0.36)'
-        _hover={{ bg: 'rgba(248, 152, 32, 0.48)' }}
-        _active={{ bg: 'rgba(248, 152, 32, 0.64)' }}
-        m={1}
-        onClick={() => openUrlInNewTab('https://www.java.com/')}
-      >
-        {t('java_platform')}
-      </Button>
+
+      {/* DESCRIPTION */}
+      {t('docker_description')}
       <br />
+
+      {/* WEB CITE */}
       <cite>
-        <Link href='https://en.wikipedia.org/wiki/Spring_Framework' isExternal>
+        <Link href='https://en.wikipedia.org/wiki/Docker_(software)' isExternal>
           Wikipedia <Icon as={FiExternalLink} mx='2px' />
         </Link>
       </cite>
@@ -874,6 +855,7 @@ export const DockerButton = () => {
       icon={<SiDocker />}
       bgHover='rgba(13, 183, 237, 0.48)'
       bgActive='rgba(13, 183, 237, 0.64)'
+      infoUrl='https://www.docker.com/'
     />
   );
 };
@@ -883,21 +865,14 @@ export const KubernetesButton = () => {
 
   const description = (
     <Text>
-      {t('spring_description')}
-      &nbsp;
-      <Button
-        leftIcon={<SiJava />}
-        bg='rgba(248, 152, 32, 0.36)'
-        _hover={{ bg: 'rgba(248, 152, 32, 0.48)' }}
-        _active={{ bg: 'rgba(248, 152, 32, 0.64)' }}
-        m={1}
-        onClick={() => openUrlInNewTab('https://www.java.com/')}
-      >
-        {t('java_platform')}
-      </Button>
+
+      {/* DESCRIPTION */}
+      {t('kubernetes_description')}
       <br />
+
+      {/* WEB CITE */}
       <cite>
-        <Link href='https://en.wikipedia.org/wiki/Spring_Framework' isExternal>
+        <Link href='https://en.wikipedia.org/wiki/Kubernetes' isExternal>
           Wikipedia <Icon as={FiExternalLink} mx='2px' />
         </Link>
       </cite>
@@ -912,6 +887,7 @@ export const KubernetesButton = () => {
       icon={<SiKubernetes />}
       bgHover='rgba(50, 108, 229, 0.48)'
       bgActive='rgba(50, 108, 229, 0.64)'
+      infoUrl='https://kubernetes.io/'
     />
   );
 };
@@ -922,22 +898,15 @@ export const GithubactionsButton = () => {
 
   const description = (
     <Text>
+
+      {/* DESCRIPTION */}
       {t('spring_description')}
-      &nbsp;
-      <Button
-        leftIcon={<SiJava />}
-        bg='rgba(248, 152, 32, 0.36)'
-        _hover={{ bg: 'rgba(248, 152, 32, 0.48)' }}
-        _active={{ bg: 'rgba(248, 152, 32, 0.64)' }}
-        m={1}
-        onClick={() => openUrlInNewTab('https://www.java.com/')}
-      >
-        {t('java_platform')}
-      </Button>
       <br />
+
+      {/* WEB CITE */}
       <cite>
-        <Link href='https://en.wikipedia.org/wiki/Spring_Framework' isExternal>
-          Wikipedia <Icon as={FiExternalLink} mx='2px' />
+        <Link href='https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions' isExternal>
+          docs.github.com <Icon as={FiExternalLink} mx='2px' />
         </Link>
       </cite>
     </Text>
@@ -951,6 +920,7 @@ export const GithubactionsButton = () => {
       icon={<SiGithubactions />}
       bgHover='rgba(26, 137, 255, 0.48)'
       bgActive='rgba(26, 137, 255, 0.64)'
+      infoUrl='https://github.com/features/actions'
     />
   );
 };
@@ -960,22 +930,15 @@ export const JenkinsButton = () => {
 
   const description = (
     <Text>
-      {t('spring_description')}
-      &nbsp;
-      <Button
-        leftIcon={<SiJava />}
-        bg='rgba(248, 152, 32, 0.36)'
-        _hover={{ bg: 'rgba(248, 152, 32, 0.48)' }}
-        _active={{ bg: 'rgba(248, 152, 32, 0.64)' }}
-        m={1}
-        onClick={() => openUrlInNewTab('https://www.java.com/')}
-      >
-        {t('java_platform')}
-      </Button>
+
+      {/* DESCRIPTION */}
+      {t('jenkins_description')}
       <br />
+
+      {/* WEB CITE */}
       <cite>
-        <Link href='https://en.wikipedia.org/wiki/Spring_Framework' isExternal>
-          Wikipedia <Icon as={FiExternalLink} mx='2px' />
+        <Link href='https://www.jenkins.io/' isExternal>
+          jenkins.io <Icon as={FiExternalLink} mx='2px' />
         </Link>
       </cite>
     </Text>
@@ -989,6 +952,7 @@ export const JenkinsButton = () => {
       icon={<SiJenkins />}
       bgHover='rgba(211, 56, 52, 0.48)'
       bgActive='rgba(211, 56, 52, 0.64)'
+      infoUrl='https://www.jenkins.io/'
     />
   );
 };

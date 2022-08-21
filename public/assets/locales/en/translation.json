@@ -48,5 +48,11 @@
   "mongodb_description": "MongoDB is an open source, document-oriented, NoSQL database system",
   "graphdb_description": "Ontotext GraphDB is a graph database and knowledge discovery tool compliant with RDF and SPARQL and available as a high-availability cluster. Ontotext GraphDB is used in various European research projects",
   "elasticsearch_description": "Elasticsearch is a search engine based on the Lucene library. It provides a distributed, multitenant-capable full-text search engine with an HTTP web interface and schema-free JSON documents",
-  "kibana_description": "Kibana is a free and open user interface for visualizing Elasticsearch data and navigating the Elastic Stack"
+  "kibana_description": "Kibana is a free and open user interface for visualizing Elasticsearch data and navigating the Elastic Stack",
+  "aws_description": "Amazon Web Services, Inc. (AWS) is a subsidiary of Amazon that provides on-demand cloud computing platforms and APIs to individuals, companies, and governments, on a metered pay-as-you-go basis",
+  "azure_description": "Microsoft Azure is a cloud computing service operated by Microsoft for application management via Microsoft-managed data centers",
+  "docker_description": "Docker is a set of platform as a service (PaaS) products that use OS-level virtualization to deliver software in packages called containers",
+  "kubernetes_description": "Kubernetes is an open-source container orchestration system for automating software deployment, scaling, and management",
+  "githubactions_description": "GitHub Actions is a continuous integration and continuous delivery (CI/CD) platform that lets you automate your build, test, and deployment process",
+  "jenkins_description": "Jenkins is an open source automation server which enables developers around the world to reliably build, test, and deploy their software"
 }
