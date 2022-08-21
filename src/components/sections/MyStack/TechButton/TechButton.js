@@ -102,6 +102,7 @@ function TechButton({
             strategy={'fixed'}
             trigger={'click'}
             isLazy={true}
+            autoFocus={true}
           >
             <PopoverTrigger>
 
@@ -117,12 +118,12 @@ function TechButton({
                 m={1}
               />
             </PopoverTrigger>
-            <PopoverContent>
+            <PopoverContent color='#1A202C' bg={'white'}>
               <PopoverArrow />
               <PopoverCloseButton />
 
               {/* POPOVER HEADER */}
-              <PopoverHeader color={'#1A202C'}>
+              <PopoverHeader>
                 <Heading 
                   as={'h4'}
                   fontSize={{ base: 'xl', sm: '2xl', lg: '3xl' }}
@@ -132,7 +133,7 @@ function TechButton({
               </PopoverHeader>
 
               {/* POPOVER BODY */}
-              <PopoverBody color={'#1A202C'}>
+              <PopoverBody>
                 {description}
               </PopoverBody>
 
