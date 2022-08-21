@@ -41,5 +41,12 @@
   "angular_description": "Angular is an open source web application framework developed in TypeScript, maintained by Google, used to create and maintain Single Page Web Applications (SPAs)",
   "react_description": "React is a free and open-source front-end JavaScript library for building user interfaces based on UI components",
   "bootstrap_description": "Bootstrap is a free and open-source CSS framework directed at responsive, mobile-first front-end web development",
-  "pug_description": "Is an express.js Haml-inspired template engine (formerly Jade)"
+  "pug_description": "Is an express.js Haml-inspired template engine (formerly Jade)",
+  "mysql_description": "MySQL is an open-source relational database management system (RDBMS)",
+  "microsoftsql_description": "Microsoft SQL Server is a relational database management system developed by Microsoft",
+  "postgresql_description": "PostgreSQL is an open source, object-oriented relational database management system",
+  "mongodb_description": "MongoDB is an open source, document-oriented, NoSQL database system",
+  "graphdb_description": "Ontotext GraphDB is a graph database and knowledge discovery tool compliant with RDF and SPARQL and available as a high-availability cluster. Ontotext GraphDB is used in various European research projects",
+  "elasticsearch_description": "Elasticsearch is a search engine based on the Lucene library. It provides a distributed, multitenant-capable full-text search engine with an HTTP web interface and schema-free JSON documents",
+  "kibana_description": "Kibana is a free and open user interface for visualizing Elasticsearch data and navigating the Elastic Stack"
 }

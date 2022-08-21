@@ -545,21 +545,14 @@ export const MySqlButton = () => {
 
   const description = (
     <Text>
-      {t('spring_description')}
-      &nbsp;
-      <Button
-        leftIcon={<SiJava />}
-        bg='rgba(248, 152, 32, 0.36)'
-        _hover={{ bg: 'rgba(248, 152, 32, 0.48)' }}
-        _active={{ bg: 'rgba(248, 152, 32, 0.64)' }}
-        m={1}
-        onClick={() => openUrlInNewTab('https://www.java.com/')}
-      >
-        {t('java_platform')}
-      </Button>
+
+      {/* DESCRIPTION */}
+      {t('mysql_description')}
       <br />
+
+      {/* WEB CITE */}
       <cite>
-        <Link href='https://en.wikipedia.org/wiki/Spring_Framework' isExternal>
+        <Link href='https://en.wikipedia.org/wiki/MySQL' isExternal>
           Wikipedia <Icon as={FiExternalLink} mx='2px' />
         </Link>
       </cite>
@@ -574,6 +567,7 @@ export const MySqlButton = () => {
       icon={<SiMysql />}
       bgHover='rgba(0, 117, 143, 0.48)'
       bgActive='rgba(0, 117, 143, 0.64)'
+      infoUrl='https://www.mysql.com/'
     />
   );
 };
@@ -583,21 +577,14 @@ export const MicrosoftSqlButton = () => {
 
   const description = (
     <Text>
-      {t('spring_description')}
-      &nbsp;
-      <Button
-        leftIcon={<SiJava />}
-        bg='rgba(248, 152, 32, 0.36)'
-        _hover={{ bg: 'rgba(248, 152, 32, 0.48)' }}
-        _active={{ bg: 'rgba(248, 152, 32, 0.64)' }}
-        m={1}
-        onClick={() => openUrlInNewTab('https://www.java.com/')}
-      >
-        {t('java_platform')}
-      </Button>
+
+      {/* DESCRIPTION */}
+      {t('microsoftsql_description')}
       <br />
+
+      {/* WEB CITE */}
       <cite>
-        <Link href='https://en.wikipedia.org/wiki/Spring_Framework' isExternal>
+        <Link href='https://en.wikipedia.org/wiki/Microsoft_SQL_Server' isExternal>
           Wikipedia <Icon as={FiExternalLink} mx='2px' />
         </Link>
       </cite>
@@ -612,6 +599,7 @@ export const MicrosoftSqlButton = () => {
       icon={<SiMicrosoftsqlserver />}
       bgHover='rgba(0, 164, 239, 0.48)'
       bgActive='rgba(0, 164, 239, 0.64)'
+      infoUrl='https://www.microsoft.com/sql-server/'
     />
   );
 };
@@ -621,21 +609,14 @@ export const PostgreSqlButton = () => {
 
   const description = (
     <Text>
-      {t('spring_description')}
-      &nbsp;
-      <Button
-        leftIcon={<SiJava />}
-        bg='rgba(248, 152, 32, 0.36)'
-        _hover={{ bg: 'rgba(248, 152, 32, 0.48)' }}
-        _active={{ bg: 'rgba(248, 152, 32, 0.64)' }}
-        m={1}
-        onClick={() => openUrlInNewTab('https://www.java.com/')}
-      >
-        {t('java_platform')}
-      </Button>
+
+      {/* DESCRIPTION */}
+      {t('postgresql_description')}
       <br />
+
+      {/* WEB CITE */}
       <cite>
-        <Link href='https://en.wikipedia.org/wiki/Spring_Framework' isExternal>
+        <Link href='https://en.wikipedia.org/wiki/PostgreSQL' isExternal>
           Wikipedia <Icon as={FiExternalLink} mx='2px' />
         </Link>
       </cite>
@@ -650,6 +631,7 @@ export const PostgreSqlButton = () => {
       icon={<SiPostgresql />}
       bgHover='rgba(51, 103, 145, 0.48)'
       bgActive='rgba(51, 103, 145, 0.64)'
+      infoUrl='https://www.postgresql.org/'
     />
   );
 };
@@ -659,21 +641,14 @@ export const MongoDbButton = () => {
 
   const description = (
     <Text>
-      {t('spring_description')}
-      &nbsp;
-      <Button
-        leftIcon={<SiJava />}
-        bg='rgba(248, 152, 32, 0.36)'
-        _hover={{ bg: 'rgba(248, 152, 32, 0.48)' }}
-        _active={{ bg: 'rgba(248, 152, 32, 0.64)' }}
-        m={1}
-        onClick={() => openUrlInNewTab('https://www.java.com/')}
-      >
-        {t('java_platform')}
-      </Button>
+
+      {/* DESCRIPTION */}
+      {t('mongodb_description')}
       <br />
+
+      {/* WEB CITE */}
       <cite>
-        <Link href='https://en.wikipedia.org/wiki/Spring_Framework' isExternal>
+        <Link href='https://en.wikipedia.org/wiki/MongoDB' isExternal>
           Wikipedia <Icon as={FiExternalLink} mx='2px' />
         </Link>
       </cite>
@@ -688,6 +663,7 @@ export const MongoDbButton = () => {
       icon={<SiMongodb />}
       bgHover='rgba(77, 179, 61, 0.48)'
       bgActive='rgba(77, 179, 61, 0.64)'
+      infoUrl='https://www.mongodb.com/'
     />
   );
 };
@@ -697,21 +673,14 @@ export const GraphDbButton = () => {
 
   const description = (
     <Text>
-      {t('spring_description')}
-      &nbsp;
-      <Button
-        leftIcon={<SiJava />}
-        bg='rgba(248, 152, 32, 0.36)'
-        _hover={{ bg: 'rgba(248, 152, 32, 0.48)' }}
-        _active={{ bg: 'rgba(248, 152, 32, 0.64)' }}
-        m={1}
-        onClick={() => openUrlInNewTab('https://www.java.com/')}
-      >
-        {t('java_platform')}
-      </Button>
+
+      {/* DESCRIPTION */}
+      {t('graphdb_description')}
       <br />
+
+      {/* WEB CITE */}
       <cite>
-        <Link href='https://en.wikipedia.org/wiki/Spring_Framework' isExternal>
+        <Link href='https://en.wikipedia.org/wiki/Ontotext_GraphDB' isExternal>
           Wikipedia <Icon as={FiExternalLink} mx='2px' />
         </Link>
       </cite>
@@ -726,6 +695,7 @@ export const GraphDbButton = () => {
       icon={<GraphDbSvg />}
       bgHover='rgba(240, 78, 35, 0.48)'
       bgActive='rgba(240, 78, 35, 0.64)'
+      infoUrl='https://graphdb.ontotext.com/'
     />
   );
 };
@@ -735,21 +705,14 @@ export const ElasticsearchButton = () => {
 
   const description = (
     <Text>
-      {t('spring_description')}
-      &nbsp;
-      <Button
-        leftIcon={<SiJava />}
-        bg='rgba(248, 152, 32, 0.36)'
-        _hover={{ bg: 'rgba(248, 152, 32, 0.48)' }}
-        _active={{ bg: 'rgba(248, 152, 32, 0.64)' }}
-        m={1}
-        onClick={() => openUrlInNewTab('https://www.java.com/')}
-      >
-        {t('java_platform')}
-      </Button>
+
+      {/* DESCRIPTION */}
+      {t('elasticsearch_description')}
       <br />
+
+      {/* WEB CITE */}
       <cite>
-        <Link href='https://en.wikipedia.org/wiki/Spring_Framework' isExternal>
+        <Link href='https://en.wikipedia.org/wiki/Elasticsearch' isExternal>
           Wikipedia <Icon as={FiExternalLink} mx='2px' />
         </Link>
       </cite>
@@ -764,6 +727,7 @@ export const ElasticsearchButton = () => {
       icon={<SiElasticsearch />}
       bgHover='rgba(64, 118, 158, 0.48)'
       bgActive='rgba(64, 118, 158, 0.64)'
+      infoUrl='https://www.elastic.co/elasticsearch/'
     />
   );
 };
@@ -773,22 +737,15 @@ export const KibanaButton = () => {
 
   const description = (
     <Text>
-      {t('spring_description')}
-      &nbsp;
-      <Button
-        leftIcon={<SiJava />}
-        bg='rgba(248, 152, 32, 0.36)'
-        _hover={{ bg: 'rgba(248, 152, 32, 0.48)' }}
-        _active={{ bg: 'rgba(248, 152, 32, 0.64)' }}
-        m={1}
-        onClick={() => openUrlInNewTab('https://www.java.com/')}
-      >
-        {t('java_platform')}
-      </Button>
+
+      {/* DESCRIPTION */}
+      {t('kibana_description')}
       <br />
+
+      {/* WEB CITE */}
       <cite>
-        <Link href='https://en.wikipedia.org/wiki/Spring_Framework' isExternal>
-          Wikipedia <Icon as={FiExternalLink} mx='2px' />
+        <Link href='https://www.elastic.co/kibana/' isExternal>
+          elastic.co <Icon as={FiExternalLink} mx='2px' />
         </Link>
       </cite>
     </Text>
@@ -802,6 +759,7 @@ export const KibanaButton = () => {
       icon={<SiKibana />}
       bgHover='rgba(0, 85, 113, 0.48)'
       bgActive='rgba(0, 85, 113, 0.64)'
+      infoUrl='https://www.elastic.co/kibana/'
     />
   );
 };
