@@ -2,6 +2,7 @@ import {
   Box, 
   Button, 
   Container, 
+  Heading, 
   HStack, 
   Stack, 
   StackDivider, 
@@ -100,6 +101,13 @@ const stacks = [
   }
 ];
 
+/**
+ * Right column that displays stack
+ * info
+ * @param {*} stack Stack to display
+ * @param {*} t translator
+ * @returns Box component
+ */
 function StackInfo(stack, t) {
   return (
       <Box
@@ -114,9 +122,19 @@ function StackInfo(stack, t) {
       >
         <Card className="stack-gradient-background">
           <Card.Body>
+
+            {/* CARD TITLE */}
             <Card.Title>
-              {`${t(stack.title)} stack`} 
+              <Heading
+                as='h3'
+                fontSize={{ base: 'xl', sm: '2xl', md: '3xl' }}
+              >
+                {`${t(stack.title)} stack`} 
+              </Heading>
             </Card.Title>
+
+            {/* CARD BODY */}
+            {/* TECH BUTTONS */}
             <Row>
               {stack.items.map((item, index) => {
                 return (

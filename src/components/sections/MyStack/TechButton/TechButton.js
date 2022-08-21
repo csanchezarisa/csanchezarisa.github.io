@@ -1,15 +1,23 @@
 import { 
+  Button,
+  Heading,
+  Icon,
   IconButton, 
+  Link, 
   Popover, 
   PopoverArrow, 
   PopoverBody, 
   PopoverCloseButton, 
   PopoverContent, 
+  PopoverFooter, 
   PopoverHeader, 
   PopoverTrigger, 
+  Text, 
   Tooltip 
 } from '@chakra-ui/react';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { FiExternalLink } from 'react-icons/fi';
 import { 
   SiAmazonaws,
   SiAngular, 
@@ -20,6 +28,7 @@ import {
   SiExpress, 
   SiFlask, 
   SiGithubactions, 
+  SiJava, 
   SiJenkins, 
   SiKibana, 
   SiKubernetes, 
@@ -28,8 +37,11 @@ import {
   SiMicrosoftsqlserver, 
   SiMongodb, 
   SiMysql, 
+  SiNodedotjs, 
+  SiPhp, 
   SiPostgresql, 
   SiPug, 
+  SiPython, 
   SiReact, 
   SiSpring 
 } from 'react-icons/si';
@@ -51,14 +63,24 @@ const GraphDbSvg = ({ height = '18px', width = '18px' }) => {
   );
 };
 
+const openUrlInNewTab = url => {
+  window.open(url, '_blank', 'noopener,noreferrer');
+};
+
 function TechButton({
   label,
   colorScheme = 'whiteAlpha',
+  footerColorScheme = 'blackAlpha',
   color = 'black',
   bgHover = 'whiteAlpha.600',
   bgActive = 'whiteAlpha.700',
+  footerBgHover = bgHover,
+  footerBgActive = bgActive,
   icon,
-  size = { base: 'lg' }
+  size = { base: 'lg' },
+  description = ' ',
+  t,
+  infoUrl = 'https://www.google.com/'
 }) {
   return (
     <>
@@ -99,216 +121,879 @@ function TechButton({
 
               {/* POPOVER HEADER */}
               <PopoverHeader color={'#1A202C'}>
-                {label}
+                <Heading 
+                  as={'h4'}
+                  fontSize={{ base: 'xl', sm: '2xl', lg: '3xl' }}
+                >
+                  {label}
+                </Heading>
               </PopoverHeader>
 
               {/* POPOVER BODY */}
               <PopoverBody color={'#1A202C'}>
-                {label}
+                {description}
               </PopoverBody>
+
+              {/* POPOVER FOOTER */}
+              <PopoverFooter 
+                display='flex' 
+                justifyContent='flex-end'
+              >
+                <Button
+                  color={color}
+                  size={size}
+                  aria-label={label}
+                  leftIcon={icon}
+                  colorScheme={footerColorScheme}
+                  _hover={{ bg: footerBgHover }}
+                  _active={{ bg: footerBgActive }}
+                  m={1}
+                  onClick={() => openUrlInNewTab(infoUrl)}
+                >
+                  {t('info')}
+                </Button>
+              </PopoverFooter>
             </PopoverContent>
           </Popover>
         </div>
       </Tooltip>
     </>
   );
-}
+};
 
-export const SpringButton = () => (
-  <TechButton
-    label='Spring'
-    icon={<SiSpring />}
-    bgHover='rgba(109, 179, 63, 0.48)'
-    bgActive='rgba(109, 179, 63, 0.64)'
-  />
-);
+export const SpringButton = () => {
+  const { t } = useTranslation();
 
-export const LaravelButton = () => (
-  <TechButton
-    label='Laravel'
-    icon={<SiLaravel />}
-    bgHover='rgba(255, 45, 32, 0.48)'
-    bgActive='rgba(255, 45, 32, 0.64)'
-  />
-);
+  const description = (
+    <Text>
+      {/* DESCRIPTION */}
+      {t('spring_description')}
+      &nbsp;
+      <Button
+        leftIcon={<SiJava />}
+        bg='rgba(248, 152, 32, 0.36)'
+        _hover={{ bg: 'rgba(248, 152, 32, 0.48)' }}
+        _active={{ bg: 'rgba(248, 152, 32, 0.64)' }}
+        m={1}
+        onClick={() => openUrlInNewTab('https://www.java.com/')}
+      >
+        {t('java_platform')}
+      </Button>
+      <br />
 
-export const DjangoButton = () => (
-  <TechButton
-    label='Django'
-    icon={<SiDjango />}
-    bgHover='rgba(9, 46, 32, 0.48)'
-    bgActive='rgba(9, 46, 32, 0.64)'
-  />
-);
+      {/* WEB CITE */}
+      <cite>
+        <Link href='https://en.wikipedia.org/wiki/Spring_Framework' isExternal>
+          Wikipedia <Icon as={FiExternalLink} mx='2px' />
+        </Link>
+      </cite>
+    </Text>
+  );
 
-export const FlaskButton = () => (
-  <TechButton
-    label='Flask'
-    icon={<SiFlask />}
-    bgHover='rgba(0, 0, 0, 0.48)'
-    bgActive='rgba(0, 0, 0, 0.64)'
-  />
-);
+  return (
+    <TechButton
+      t={t}
+      description={description}
+      label='Spring'
+      icon={<SiSpring />}
+      bg='rgb(109, 179, 63)'
+      bgHover='rgba(109, 179, 63, 0.48)'
+      bgActive='rgba(109, 179, 63, 0.64)'
+      infoUrl='https://spring.io/'
+    />
+  )
+};
 
-export const ExpressButton = () => (
-  <TechButton
-    label='Express.js'
-    icon={<SiExpress />}
-    bgHover='rgba(64, 77, 89, 0.48)'
-    bgActive='rgba(64, 77, 89, 0.64)'
-  />
-);
+export const LaravelButton = () => {
+  const { t } = useTranslation();
 
-export const AngularButton = () => (
-  <TechButton
-    label='Angular'
-    icon={<SiAngular />}
-    bgHover='rgba(221, 0, 49, 0.48)'
-    bgActive='rgba(221, 0, 49, 0.64)'
-  />
-);
+  const description = (
+    <Text>
+      {/* DESCRIPTION */}
+      {t('laravel_description').replace('PHP', '')}
+      <Button
+        leftIcon={<SiPhp />}
+        bg='rgba(119, 123, 179, 0.36)'
+        _hover={{ bg: 'rgba(119, 123, 179, 0.48)' }}
+        _active={{ bg: 'rgba(119, 123, 179, 0.64)' }}
+        m={1}
+        onClick={() => openUrlInNewTab('https://www.php.net/')}
+      >
+        PHP
+      </Button>
+      <br />
 
-export const ReactButton = () => (
-  <TechButton
-    label='React'
-    icon={<SiReact />}
-    bgHover='rgba(97, 219, 251, 0.48)'
-    bgActive='rgba(97, 219, 251, 0.64)'
-  />
-);
+      {/* WEB CITE */}
+      <cite>
+        <Link href='https://en.wikipedia.org/wiki/Laravel' isExternal>
+          Wikipedia <Icon as={FiExternalLink} mx='2px' />
+        </Link>
+      </cite>
+    </Text>
+  );
+  return (
+    <TechButton
+      t={t}
+      description={description}
+      label='Laravel'
+      icon={<SiLaravel />}
+      bgHover='rgba(255, 45, 32, 0.48)'
+      bgActive='rgba(255, 45, 32, 0.64)'
+      infoUrl='https://laravel.com/'
+    />
+  );
+};
 
-export const BootstrapButton = () => (
-  <TechButton
-    label='Bootstrap'
-    icon={<SiBootstrap />}
-    bgHover='rgba(86, 61, 124, 0.48)'
-    bgActive='rgba(86, 61, 124, 0.64)'
-  />
-);
+export const DjangoButton = () => {
+  const { t } = useTranslation();
 
-export const PugButton = () => (
-  <TechButton
-    label='Pug'
-    icon={<SiPug />}
-    bgHover='rgba(255, 255, 255, 0.48)'
-    bgActive='rgba(255, 255, 255, 0.64)'
-  />
-);
+  const description = (
+    <Text>
+      {/* DESCRIPTION */}
+      {t('django_description').split('Python')[0]}
+      <Button
+        leftIcon={<SiPython />}
+        bg='rgba(48, 105, 152, 0.36)'
+        _hover={{ bg: 'rgba(48, 105, 152, 0.48)' }}
+        _active={{ bg: 'rgba(48, 105, 152, 0.64)' }}
+        m={1}
+        onClick={() => openUrlInNewTab('https://www.python.org/')}
+      >
+        Python
+      </Button>
+      {t('django_description').split('Python')[1]}
+      <br />
 
-export const MySqlButton = () => (
-  <TechButton
-    label='MySQL'
-    icon={<SiMysql />}
-    bgHover='rgba(0, 117, 143, 0.48)'
-    bgActive='rgba(0, 117, 143, 0.64)'
-  />
-);
+      {/* WEB CITE */}
+      <cite>
+        <Link href='https://en.wikipedia.org/wiki/Django_(web_framework)' isExternal>
+          Wikipedia <Icon as={FiExternalLink} mx='2px' />
+        </Link>
+      </cite>
+    </Text>
+  );
+  return (
+    <TechButton
+      t={t}
+      description={description}
+      label='Django'
+      icon={<SiDjango />}
+      bgHover='rgba(9, 46, 32, 0.48)'
+      bgActive='rgba(9, 46, 32, 0.64)'
+      infoUrl='https://www.djangoproject.com/'
+    />
+  );
+};
 
-export const MicrosoftSqlButton = () => (
-  <TechButton
-    label='Microsoft SQL Server'
-    icon={<SiMicrosoftsqlserver />}
-    bgHover='rgba(0, 164, 239, 0.48)'
-    bgActive='rgba(0, 164, 239, 0.64)'
-  />
-);
+export const FlaskButton = () => {
+  const { t } = useTranslation();
 
-export const PostgreSqlButton = () => (
-  <TechButton
-    label='PostgreSQL'
-    icon={<SiPostgresql />}
-    bgHover='rgba(51, 103, 145, 0.48)'
-    bgActive='rgba(51, 103, 145, 0.64)'
-  />
-);
+  const description = (
+    <Text>
+      {/* DESCRIPTION */}
+      {t('flask_description').split('Python')[0]}
+      <Button
+        leftIcon={<SiPython />}
+        bg='rgba(48, 105, 152, 0.36)'
+        _hover={{ bg: 'rgba(48, 105, 152, 0.48)' }}
+        _active={{ bg: 'rgba(48, 105, 152, 0.64)' }}
+        m={1}
+        onClick={() => openUrlInNewTab('https://www.python.org/')}
+      >
+        Python
+      </Button>
+      {t('flask_description').split('Python')[1]}
+      <br />
 
-export const MongoDbButton = () => (
-  <TechButton
-    label='MongoDB'
-    icon={<SiMongodb />}
-    bgHover='rgba(77, 179, 61, 0.48)'
-    bgActive='rgba(77, 179, 61, 0.64)'
-  />
-);
+      {/* WEB CITE */}
+      <cite>
+        <Link href='https://en.wikipedia.org/wiki/Flask_(web_framework)' isExternal>
+          Wikipedia <Icon as={FiExternalLink} mx='2px' />
+        </Link>
+      </cite>
+    </Text>
+  );
+  return (
+    <TechButton
+      t={t}
+      description={description}
+      label='Flask'
+      icon={<SiFlask />}
+      bgHover='rgba(0, 0, 0, 0.48)'
+      bgActive='rgba(0, 0, 0, 0.64)'
+      infoUrl='https://flask.palletsprojects.com/'
+    />
+  );
+};
 
-export const GraphDbButton = () => (
-  <TechButton
-    label='GraphDB'
-    icon={<GraphDbSvg />}
-    bgHover='rgba(240, 78, 35, 0.48)'
-    bgActive='rgba(240, 78, 35, 0.64)'
-  />
-);
+export const ExpressButton = () => {
+  const { t } = useTranslation();
 
-export const ElasticsearchButton = () => (
-  <TechButton
-    label='Elasticsearch'
-    icon={<SiElasticsearch />}
-    bgHover='rgba(64, 118, 158, 0.48)'
-    bgActive='rgba(64, 118, 158, 0.64)'
-  />
-);
+  const description = (
+    <Text>
 
-export const KibanaButton = () => (
-  <TechButton
-    label='Kibana'
-    icon={<SiKibana />}
-    bgHover='rgba(0, 85, 113, 0.48)'
-    bgActive='rgba(0, 85, 113, 0.64)'
-  />
-);
+      {/* DESCRIPTION */}
+      {t('expressjs_description').split('Node.js')[0]}
+      <Button
+        leftIcon={<SiNodedotjs />}
+        bg='rgba(104, 160, 99, 0.36)'
+        _hover={{ bg: 'rgba(104, 160, 99, 0.48)' }}
+        _active={{ bg: 'rgba(104, 160, 99, 0.64)' }}
+        m={1}
+        onClick={() => openUrlInNewTab('https://nodejs.org/')}
+      >
+        Node.js
+      </Button>
+      {t('expressjs_description').split('Node.js')[1]}
+      <br />
 
-export const AWSButton = () => (
-  <TechButton
-    label='Amazon Web Services'
-    icon={<SiAmazonaws />}
-    bgHover='rgba(255, 153, 0, 0.48)'
-    bgActive='rgba(255, 153, 0, 0.64)'
-  />
-);
+      {/* WEB CITE */}
+      <cite>
+        <Link href='https://en.wikipedia.org/wiki/Express.js' isExternal>
+          Wikipedia <Icon as={FiExternalLink} mx='2px' />
+        </Link>
+      </cite>
+    </Text>
+  );
+  return (
+    <TechButton
+      t={t}
+      description={description}
+      label='Express.js'
+      icon={<SiExpress />}
+      bgHover='rgba(64, 77, 89, 0.48)'
+      bgActive='rgba(64, 77, 89, 0.64)'
+      infoUrl='https://expressjs.com/'
+    />
+  );
+};
 
-export const AzureButton = () => (
-  <TechButton
-    label='Microsoft Azure'
-    icon={<SiMicrosoftazure />}
-    bgHover='rgba(0, 127, 255, 0.48)'
-    bgActive='rgba(0, 127, 255, 0.64)'
-  />
-);
+export const AngularButton = () => {
+  const { t } = useTranslation();
 
-export const DockerButton = () => (
-  <TechButton
-    label='Docker'
-    icon={<SiDocker />}
-    bgHover='rgba(13, 183, 237, 0.48)'
-    bgActive='rgba(13, 183, 237, 0.64)'
-  />
-);
+  const description = (
+    <Text>
+      {t('spring_description')}
+      &nbsp;
+      <Button
+        leftIcon={<SiJava />}
+        bg='rgba(248, 152, 32, 0.36)'
+        _hover={{ bg: 'rgba(248, 152, 32, 0.48)' }}
+        _active={{ bg: 'rgba(248, 152, 32, 0.64)' }}
+        m={1}
+        onClick={() => openUrlInNewTab('https://www.java.com/')}
+      >
+        {t('java_platform')}
+      </Button>
+      <br />
+      <cite>
+        <Link href='https://en.wikipedia.org/wiki/Spring_Framework' isExternal>
+          Wikipedia <Icon as={FiExternalLink} mx='2px' />
+        </Link>
+      </cite>
+    </Text>
+  );
+  return (
+    <TechButton
+      t={t}
+      description={description}
+      label='Angular'
+      icon={<SiAngular />}
+      bgHover='rgba(221, 0, 49, 0.48)'
+      bgActive='rgba(221, 0, 49, 0.64)'
+    />
+  );
+};
 
-export const KubernetesButton = () => (
-  <TechButton
-    label='Kubernetes'
-    icon={<SiKubernetes />}
-    bgHover='rgba(50, 108, 229, 0.48)'
-    bgActive='rgba(50, 108, 229, 0.64)'
-  />
-);
+export const ReactButton = () => {
+  const { t } = useTranslation();
+
+  const description = (
+    <Text>
+      {t('spring_description')}
+      &nbsp;
+      <Button
+        leftIcon={<SiJava />}
+        bg='rgba(248, 152, 32, 0.36)'
+        _hover={{ bg: 'rgba(248, 152, 32, 0.48)' }}
+        _active={{ bg: 'rgba(248, 152, 32, 0.64)' }}
+        m={1}
+        onClick={() => openUrlInNewTab('https://www.java.com/')}
+      >
+        {t('java_platform')}
+      </Button>
+      <br />
+      <cite>
+        <Link href='https://en.wikipedia.org/wiki/Spring_Framework' isExternal>
+          Wikipedia <Icon as={FiExternalLink} mx='2px' />
+        </Link>
+      </cite>
+    </Text>
+  );
+  return (
+    <TechButton
+      t={t}
+      description={description}
+      label='React'
+      icon={<SiReact />}
+      bgHover='rgba(97, 219, 251, 0.48)'
+      bgActive='rgba(97, 219, 251, 0.64)'
+    />
+  );
+};
+
+export const BootstrapButton = () => {
+  const { t } = useTranslation();
+
+  const description = (
+    <Text>
+      {t('spring_description')}
+      &nbsp;
+      <Button
+        leftIcon={<SiJava />}
+        bg='rgba(248, 152, 32, 0.36)'
+        _hover={{ bg: 'rgba(248, 152, 32, 0.48)' }}
+        _active={{ bg: 'rgba(248, 152, 32, 0.64)' }}
+        m={1}
+        onClick={() => openUrlInNewTab('https://www.java.com/')}
+      >
+        {t('java_platform')}
+      </Button>
+      <br />
+      <cite>
+        <Link href='https://en.wikipedia.org/wiki/Spring_Framework' isExternal>
+          Wikipedia <Icon as={FiExternalLink} mx='2px' />
+        </Link>
+      </cite>
+    </Text>
+  );
+  return (
+    <TechButton
+      t={t}
+      description={description}
+      label='Bootstrap'
+      icon={<SiBootstrap />}
+      bgHover='rgba(86, 61, 124, 0.48)'
+      bgActive='rgba(86, 61, 124, 0.64)'
+    />
+  );
+};
+
+export const PugButton = () => {
+  const { t } = useTranslation();
+
+  const description = (
+    <Text>
+      {t('spring_description')}
+      &nbsp;
+      <Button
+        leftIcon={<SiJava />}
+        bg='rgba(248, 152, 32, 0.36)'
+        _hover={{ bg: 'rgba(248, 152, 32, 0.48)' }}
+        _active={{ bg: 'rgba(248, 152, 32, 0.64)' }}
+        m={1}
+        onClick={() => openUrlInNewTab('https://www.java.com/')}
+      >
+        {t('java_platform')}
+      </Button>
+      <br />
+      <cite>
+        <Link href='https://en.wikipedia.org/wiki/Spring_Framework' isExternal>
+          Wikipedia <Icon as={FiExternalLink} mx='2px' />
+        </Link>
+      </cite>
+    </Text>
+  );
+  return (
+    <TechButton
+      t={t}
+      description={description}
+      label='Pug'
+      icon={<SiPug />}
+      bgHover='rgba(255, 255, 255, 0.48)'
+      bgActive='rgba(255, 255, 255, 0.64)'
+    />
+  );
+};
+
+export const MySqlButton = () => {
+  const { t } = useTranslation();
+
+  const description = (
+    <Text>
+      {t('spring_description')}
+      &nbsp;
+      <Button
+        leftIcon={<SiJava />}
+        bg='rgba(248, 152, 32, 0.36)'
+        _hover={{ bg: 'rgba(248, 152, 32, 0.48)' }}
+        _active={{ bg: 'rgba(248, 152, 32, 0.64)' }}
+        m={1}
+        onClick={() => openUrlInNewTab('https://www.java.com/')}
+      >
+        {t('java_platform')}
+      </Button>
+      <br />
+      <cite>
+        <Link href='https://en.wikipedia.org/wiki/Spring_Framework' isExternal>
+          Wikipedia <Icon as={FiExternalLink} mx='2px' />
+        </Link>
+      </cite>
+    </Text>
+  );
+  return (
+    <TechButton
+      t={t}
+      description={description}
+      label='MySQL'
+      icon={<SiMysql />}
+      bgHover='rgba(0, 117, 143, 0.48)'
+      bgActive='rgba(0, 117, 143, 0.64)'
+    />
+  );
+};
+
+export const MicrosoftSqlButton = () => {
+  const { t } = useTranslation();
+
+  const description = (
+    <Text>
+      {t('spring_description')}
+      &nbsp;
+      <Button
+        leftIcon={<SiJava />}
+        bg='rgba(248, 152, 32, 0.36)'
+        _hover={{ bg: 'rgba(248, 152, 32, 0.48)' }}
+        _active={{ bg: 'rgba(248, 152, 32, 0.64)' }}
+        m={1}
+        onClick={() => openUrlInNewTab('https://www.java.com/')}
+      >
+        {t('java_platform')}
+      </Button>
+      <br />
+      <cite>
+        <Link href='https://en.wikipedia.org/wiki/Spring_Framework' isExternal>
+          Wikipedia <Icon as={FiExternalLink} mx='2px' />
+        </Link>
+      </cite>
+    </Text>
+  );
+  return (
+    <TechButton
+      t={t}
+      description={description}
+      label='Microsoft SQL Server'
+      icon={<SiMicrosoftsqlserver />}
+      bgHover='rgba(0, 164, 239, 0.48)'
+      bgActive='rgba(0, 164, 239, 0.64)'
+    />
+  );
+};
+
+export const PostgreSqlButton = () => {
+  const { t } = useTranslation();
+
+  const description = (
+    <Text>
+      {t('spring_description')}
+      &nbsp;
+      <Button
+        leftIcon={<SiJava />}
+        bg='rgba(248, 152, 32, 0.36)'
+        _hover={{ bg: 'rgba(248, 152, 32, 0.48)' }}
+        _active={{ bg: 'rgba(248, 152, 32, 0.64)' }}
+        m={1}
+        onClick={() => openUrlInNewTab('https://www.java.com/')}
+      >
+        {t('java_platform')}
+      </Button>
+      <br />
+      <cite>
+        <Link href='https://en.wikipedia.org/wiki/Spring_Framework' isExternal>
+          Wikipedia <Icon as={FiExternalLink} mx='2px' />
+        </Link>
+      </cite>
+    </Text>
+  );
+  return (
+    <TechButton
+      t={t}
+      description={description}
+      label='PostgreSQL'
+      icon={<SiPostgresql />}
+      bgHover='rgba(51, 103, 145, 0.48)'
+      bgActive='rgba(51, 103, 145, 0.64)'
+    />
+  );
+};
+
+export const MongoDbButton = () => {
+  const { t } = useTranslation();
+
+  const description = (
+    <Text>
+      {t('spring_description')}
+      &nbsp;
+      <Button
+        leftIcon={<SiJava />}
+        bg='rgba(248, 152, 32, 0.36)'
+        _hover={{ bg: 'rgba(248, 152, 32, 0.48)' }}
+        _active={{ bg: 'rgba(248, 152, 32, 0.64)' }}
+        m={1}
+        onClick={() => openUrlInNewTab('https://www.java.com/')}
+      >
+        {t('java_platform')}
+      </Button>
+      <br />
+      <cite>
+        <Link href='https://en.wikipedia.org/wiki/Spring_Framework' isExternal>
+          Wikipedia <Icon as={FiExternalLink} mx='2px' />
+        </Link>
+      </cite>
+    </Text>
+  );
+  return (
+    <TechButton
+      t={t}
+      description={description}
+      label='MongoDB'
+      icon={<SiMongodb />}
+      bgHover='rgba(77, 179, 61, 0.48)'
+      bgActive='rgba(77, 179, 61, 0.64)'
+    />
+  );
+};
+
+export const GraphDbButton = () => {
+  const { t } = useTranslation();
+
+  const description = (
+    <Text>
+      {t('spring_description')}
+      &nbsp;
+      <Button
+        leftIcon={<SiJava />}
+        bg='rgba(248, 152, 32, 0.36)'
+        _hover={{ bg: 'rgba(248, 152, 32, 0.48)' }}
+        _active={{ bg: 'rgba(248, 152, 32, 0.64)' }}
+        m={1}
+        onClick={() => openUrlInNewTab('https://www.java.com/')}
+      >
+        {t('java_platform')}
+      </Button>
+      <br />
+      <cite>
+        <Link href='https://en.wikipedia.org/wiki/Spring_Framework' isExternal>
+          Wikipedia <Icon as={FiExternalLink} mx='2px' />
+        </Link>
+      </cite>
+    </Text>
+  );
+  return (
+    <TechButton
+      t={t}
+      description={description}
+      label='GraphDB'
+      icon={<GraphDbSvg />}
+      bgHover='rgba(240, 78, 35, 0.48)'
+      bgActive='rgba(240, 78, 35, 0.64)'
+    />
+  );
+};
+
+export const ElasticsearchButton = () => {
+  const { t } = useTranslation();
+
+  const description = (
+    <Text>
+      {t('spring_description')}
+      &nbsp;
+      <Button
+        leftIcon={<SiJava />}
+        bg='rgba(248, 152, 32, 0.36)'
+        _hover={{ bg: 'rgba(248, 152, 32, 0.48)' }}
+        _active={{ bg: 'rgba(248, 152, 32, 0.64)' }}
+        m={1}
+        onClick={() => openUrlInNewTab('https://www.java.com/')}
+      >
+        {t('java_platform')}
+      </Button>
+      <br />
+      <cite>
+        <Link href='https://en.wikipedia.org/wiki/Spring_Framework' isExternal>
+          Wikipedia <Icon as={FiExternalLink} mx='2px' />
+        </Link>
+      </cite>
+    </Text>
+  );
+  return (
+    <TechButton
+      t={t}
+      description={description}
+      label='Elasticsearch'
+      icon={<SiElasticsearch />}
+      bgHover='rgba(64, 118, 158, 0.48)'
+      bgActive='rgba(64, 118, 158, 0.64)'
+    />
+  );
+};
+
+export const KibanaButton = () => {
+  const { t } = useTranslation();
+
+  const description = (
+    <Text>
+      {t('spring_description')}
+      &nbsp;
+      <Button
+        leftIcon={<SiJava />}
+        bg='rgba(248, 152, 32, 0.36)'
+        _hover={{ bg: 'rgba(248, 152, 32, 0.48)' }}
+        _active={{ bg: 'rgba(248, 152, 32, 0.64)' }}
+        m={1}
+        onClick={() => openUrlInNewTab('https://www.java.com/')}
+      >
+        {t('java_platform')}
+      </Button>
+      <br />
+      <cite>
+        <Link href='https://en.wikipedia.org/wiki/Spring_Framework' isExternal>
+          Wikipedia <Icon as={FiExternalLink} mx='2px' />
+        </Link>
+      </cite>
+    </Text>
+  );
+  return (
+    <TechButton
+      t={t}
+      description={description}
+      label='Kibana'
+      icon={<SiKibana />}
+      bgHover='rgba(0, 85, 113, 0.48)'
+      bgActive='rgba(0, 85, 113, 0.64)'
+    />
+  );
+};
+
+export const AWSButton = () => {
+  const { t } = useTranslation();
+
+  const description = (
+    <Text>
+      {t('spring_description')}
+      &nbsp;
+      <Button
+        leftIcon={<SiJava />}
+        bg='rgba(248, 152, 32, 0.36)'
+        _hover={{ bg: 'rgba(248, 152, 32, 0.48)' }}
+        _active={{ bg: 'rgba(248, 152, 32, 0.64)' }}
+        m={1}
+        onClick={() => openUrlInNewTab('https://www.java.com/')}
+      >
+        {t('java_platform')}
+      </Button>
+      <br />
+      <cite>
+        <Link href='https://en.wikipedia.org/wiki/Spring_Framework' isExternal>
+          Wikipedia <Icon as={FiExternalLink} mx='2px' />
+        </Link>
+      </cite>
+    </Text>
+  );
+  return (
+    <TechButton
+      t={t}
+      description={description}
+      label='Amazon Web Services'
+      icon={<SiAmazonaws />}
+      bgHover='rgba(255, 153, 0, 0.48)'
+      bgActive='rgba(255, 153, 0, 0.64)'
+    />
+  );
+};
+
+export const AzureButton = () => {
+  const { t } = useTranslation();
+
+  const description = (
+    <Text>
+      {t('spring_description')}
+      &nbsp;
+      <Button
+        leftIcon={<SiJava />}
+        bg='rgba(248, 152, 32, 0.36)'
+        _hover={{ bg: 'rgba(248, 152, 32, 0.48)' }}
+        _active={{ bg: 'rgba(248, 152, 32, 0.64)' }}
+        m={1}
+        onClick={() => openUrlInNewTab('https://www.java.com/')}
+      >
+        {t('java_platform')}
+      </Button>
+      <br />
+      <cite>
+        <Link href='https://en.wikipedia.org/wiki/Spring_Framework' isExternal>
+          Wikipedia <Icon as={FiExternalLink} mx='2px' />
+        </Link>
+      </cite>
+    </Text>
+  );
+  return (
+    <TechButton
+      t={t}
+      description={description}
+      label='Microsoft Azure'
+      icon={<SiMicrosoftazure />}
+      bgHover='rgba(0, 127, 255, 0.48)'
+      bgActive='rgba(0, 127, 255, 0.64)'
+    />
+  );
+};
+
+export const DockerButton = () => {
+  const { t } = useTranslation();
+
+  const description = (
+    <Text>
+      {t('spring_description')}
+      &nbsp;
+      <Button
+        leftIcon={<SiJava />}
+        bg='rgba(248, 152, 32, 0.36)'
+        _hover={{ bg: 'rgba(248, 152, 32, 0.48)' }}
+        _active={{ bg: 'rgba(248, 152, 32, 0.64)' }}
+        m={1}
+        onClick={() => openUrlInNewTab('https://www.java.com/')}
+      >
+        {t('java_platform')}
+      </Button>
+      <br />
+      <cite>
+        <Link href='https://en.wikipedia.org/wiki/Spring_Framework' isExternal>
+          Wikipedia <Icon as={FiExternalLink} mx='2px' />
+        </Link>
+      </cite>
+    </Text>
+  );
+  return (
+    <TechButton
+      t={t}
+      description={description}
+      label='Docker'
+      icon={<SiDocker />}
+      bgHover='rgba(13, 183, 237, 0.48)'
+      bgActive='rgba(13, 183, 237, 0.64)'
+    />
+  );
+};
+
+export const KubernetesButton = () => {
+  const { t } = useTranslation();
+
+  const description = (
+    <Text>
+      {t('spring_description')}
+      &nbsp;
+      <Button
+        leftIcon={<SiJava />}
+        bg='rgba(248, 152, 32, 0.36)'
+        _hover={{ bg: 'rgba(248, 152, 32, 0.48)' }}
+        _active={{ bg: 'rgba(248, 152, 32, 0.64)' }}
+        m={1}
+        onClick={() => openUrlInNewTab('https://www.java.com/')}
+      >
+        {t('java_platform')}
+      </Button>
+      <br />
+      <cite>
+        <Link href='https://en.wikipedia.org/wiki/Spring_Framework' isExternal>
+          Wikipedia <Icon as={FiExternalLink} mx='2px' />
+        </Link>
+      </cite>
+    </Text>
+  );
+  return (
+    <TechButton
+      t={t}
+      description={description}
+      label='Kubernetes'
+      icon={<SiKubernetes />}
+      bgHover='rgba(50, 108, 229, 0.48)'
+      bgActive='rgba(50, 108, 229, 0.64)'
+    />
+  );
+};
 
 
-export const GithubactionsButton = () => (
-  <TechButton
-    label='Github Actions'
-    icon={<SiGithubactions />}
-    bgHover='rgba(26, 137, 255, 0.48)'
-    bgActive='rgba(26, 137, 255, 0.64)'
-  />
-);
+export const GithubactionsButton = () => {
+  const { t } = useTranslation();
 
-export const JenkinsButton = () => (
-  <TechButton
-    label='Jenkins'
-    icon={<SiJenkins />}
-    bgHover='rgba(211, 56, 52, 0.48)'
-    bgActive='rgba(211, 56, 52, 0.64)'
-  />
-);
+  const description = (
+    <Text>
+      {t('spring_description')}
+      &nbsp;
+      <Button
+        leftIcon={<SiJava />}
+        bg='rgba(248, 152, 32, 0.36)'
+        _hover={{ bg: 'rgba(248, 152, 32, 0.48)' }}
+        _active={{ bg: 'rgba(248, 152, 32, 0.64)' }}
+        m={1}
+        onClick={() => openUrlInNewTab('https://www.java.com/')}
+      >
+        {t('java_platform')}
+      </Button>
+      <br />
+      <cite>
+        <Link href='https://en.wikipedia.org/wiki/Spring_Framework' isExternal>
+          Wikipedia <Icon as={FiExternalLink} mx='2px' />
+        </Link>
+      </cite>
+    </Text>
+  );
+  return (
+    <TechButton
+      t={t}
+      description={description}
+      label='Github Actions'
+      icon={<SiGithubactions />}
+      bgHover='rgba(26, 137, 255, 0.48)'
+      bgActive='rgba(26, 137, 255, 0.64)'
+    />
+  );
+};
+
+export const JenkinsButton = () => {
+  const { t } = useTranslation();
+
+  const description = (
+    <Text>
+      {t('spring_description')}
+      &nbsp;
+      <Button
+        leftIcon={<SiJava />}
+        bg='rgba(248, 152, 32, 0.36)'
+        _hover={{ bg: 'rgba(248, 152, 32, 0.48)' }}
+        _active={{ bg: 'rgba(248, 152, 32, 0.64)' }}
+        m={1}
+        onClick={() => openUrlInNewTab('https://www.java.com/')}
+      >
+        {t('java_platform')}
+      </Button>
+      <br />
+      <cite>
+        <Link href='https://en.wikipedia.org/wiki/Spring_Framework' isExternal>
+          Wikipedia <Icon as={FiExternalLink} mx='2px' />
+        </Link>
+      </cite>
+    </Text>
+  );
+  return (
+    <TechButton
+      t={t}
+      description={description}
+      label='Jenkins'
+      icon={<SiJenkins />}
+      bgHover='rgba(211, 56, 52, 0.48)'
+      bgActive='rgba(211, 56, 52, 0.64)'
+    />
+  );
+};

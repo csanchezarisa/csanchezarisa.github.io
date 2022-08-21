@@ -30,5 +30,12 @@
   "database": "Database",
   "devops_and_cloud": "DevOps and Cloud",
   "click_stack_btn": "Click to show {key} stack",
-  "my_stack_presentation": "Do you want to know my tech stack with the languages and tools that I use?"
+  "my_stack_presentation": "Do you want to know my tech stack with the languages and tools that I use?",
+  "info": "Info",
+  "spring_description": "The Spring Framework is an application framework and inversion of control container for the",
+  "java_platform": "JAVA platform",
+  "flask_description": "Flask is a minimalist framework written in Python that allows you to create web applications quickly and with a minimum number of lines of code",
+  "laravel_description": "Laravel is an open source framework for developing web applications and services with PHP",
+  "django_description": "Django is an open source web development framework, written in Python, that adheres to the model-view-controller (MVC) design pattern",
+  "expressjs_description": "Express.js, or simply Express, is a back end web application framework for Node.js, it is designed for building web applications and APIs"
 }
