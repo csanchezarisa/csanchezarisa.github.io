@@ -10,7 +10,6 @@ import {
   Flex,
   FormControl,
   FormLabel,
-  Heading,
   IconButton,
   Input,
   InputGroup,
@@ -22,12 +21,12 @@ import {
   useClipboard,
   VStack,
   Text,
-  useBreakpointValue,
   FormErrorMessage,
   useToast,
 } from '@chakra-ui/react';
 
 import sendForm from "services/EmailSender";
+import Title from "components/Title/Title";
 
 const confetti = {
   light: {
@@ -232,33 +231,7 @@ function ContactSection() {
         p={{ base: 2, lg: 5 }}>
         <Box>
           <VStack spacing={{ base: 4, md: 8, lg: 20 }}>
-            <Heading
-              as="h1"
-              lineHeight={1.1}
-              fontWeight={600}
-              fontSize={{ base: '3xl', sm: '4xl', lg: '6xl' }}
-              color={'white'}
-              textAlign='center'
-            >
-              <Text
-                as={'span'}
-                color={'white'}
-                position={'relative'}
-                zIndex={1}
-                _after={{
-                  content: "''",
-                  width: 'full',
-                  height: useBreakpointValue({ base: '20%', md: '30%' }),
-                  position: 'absolute',
-                  bottom: 1,
-                  left: 0,
-                  bg: 'red.400',
-                  zIndex: -1,
-                }}
-              >
-                {t('contact_me')}
-              </Text>
-            </Heading>
+            <Title title={t('contact_me')} />
             <Text 
               color={'gray.300'}
               textAlign='center'

@@ -1,0 +1,7 @@
+.stack-gradient-background {
+	background: linear-gradient(-45deg, #E53E3E, #F56565, #282c34);
+	background-size: 400% 400%;
+	animation: animated-gradient 30s ease infinite;
+  border-radius: 1rem;
+  color: white;
+}
