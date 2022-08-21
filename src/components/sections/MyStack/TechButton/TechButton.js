@@ -29,6 +29,7 @@ import {
   SiFlask, 
   SiGithubactions, 
   SiJava, 
+  SiJavascript, 
   SiJenkins, 
   SiKibana, 
   SiKubernetes, 
@@ -43,7 +44,8 @@ import {
   SiPug, 
   SiPython, 
   SiReact, 
-  SiSpring 
+  SiSpring, 
+  SiTypescript
 } from 'react-icons/si';
 
 const GraphDbSvg = ({ height = '18px', width = '18px' }) => {
@@ -166,6 +168,7 @@ export const SpringButton = () => {
 
   const description = (
     <Text>
+
       {/* DESCRIPTION */}
       {t('spring_description')}
       &nbsp;
@@ -209,6 +212,7 @@ export const LaravelButton = () => {
 
   const description = (
     <Text>
+
       {/* DESCRIPTION */}
       {t('laravel_description').replace('PHP', '')}
       <Button
@@ -231,6 +235,7 @@ export const LaravelButton = () => {
       </cite>
     </Text>
   );
+
   return (
     <TechButton
       t={t}
@@ -249,6 +254,7 @@ export const DjangoButton = () => {
 
   const description = (
     <Text>
+
       {/* DESCRIPTION */}
       {t('django_description').split('Python')[0]}
       <Button
@@ -272,6 +278,7 @@ export const DjangoButton = () => {
       </cite>
     </Text>
   );
+
   return (
     <TechButton
       t={t}
@@ -290,6 +297,7 @@ export const FlaskButton = () => {
 
   const description = (
     <Text>
+
       {/* DESCRIPTION */}
       {t('flask_description').split('Python')[0]}
       <Button
@@ -313,6 +321,7 @@ export const FlaskButton = () => {
       </cite>
     </Text>
   );
+
   return (
     <TechButton
       t={t}
@@ -355,6 +364,7 @@ export const ExpressButton = () => {
       </cite>
     </Text>
   );
+
   return (
     <TechButton
       t={t}
@@ -373,26 +383,31 @@ export const AngularButton = () => {
 
   const description = (
     <Text>
-      {t('spring_description')}
-      &nbsp;
+
+      {/* DESCRIPTION */}
+      {t('angular_description').split('TypeScript')[0]}
       <Button
-        leftIcon={<SiJava />}
-        bg='rgba(248, 152, 32, 0.36)'
-        _hover={{ bg: 'rgba(248, 152, 32, 0.48)' }}
-        _active={{ bg: 'rgba(248, 152, 32, 0.64)' }}
+        leftIcon={<SiTypescript />}
+        bg='rgba(0, 122, 204, 0.36)'
+        _hover={{ bg: 'rgba(0, 122, 204, 0.48)' }}
+        _active={{ bg: 'rgba(0, 122, 204, 0.64)' }}
         m={1}
-        onClick={() => openUrlInNewTab('https://www.java.com/')}
+        onClick={() => openUrlInNewTab('https://www.typescriptlang.org/')}
       >
-        {t('java_platform')}
+        TypeScript
       </Button>
+      {t('angular_description').split('TypeScript')[1]}
       <br />
+
+      {/* WEB CITE */}
       <cite>
-        <Link href='https://en.wikipedia.org/wiki/Spring_Framework' isExternal>
+        <Link href='https://en.wikipedia.org/wiki/Angular_(web_framework)' isExternal>
           Wikipedia <Icon as={FiExternalLink} mx='2px' />
         </Link>
       </cite>
     </Text>
   );
+
   return (
     <TechButton
       t={t}
@@ -401,6 +416,7 @@ export const AngularButton = () => {
       icon={<SiAngular />}
       bgHover='rgba(221, 0, 49, 0.48)'
       bgActive='rgba(221, 0, 49, 0.64)'
+      infoUrl='https://angular.io/'
     />
   );
 };
@@ -410,26 +426,31 @@ export const ReactButton = () => {
 
   const description = (
     <Text>
-      {t('spring_description')}
-      &nbsp;
+
+      {/* DESCRIPTION */}
+      {t('react_description').split('JavaScript')[0]}
       <Button
-        leftIcon={<SiJava />}
-        bg='rgba(248, 152, 32, 0.36)'
-        _hover={{ bg: 'rgba(248, 152, 32, 0.48)' }}
-        _active={{ bg: 'rgba(248, 152, 32, 0.64)' }}
+        leftIcon={<SiJavascript />}
+        bg='rgba(240, 219, 79, 0.36)'
+        _hover={{ bg: 'rgba(240, 219, 79, 0.48)' }}
+        _active={{ bg: 'rgba(240, 219, 79, 0.64)' }}
         m={1}
-        onClick={() => openUrlInNewTab('https://www.java.com/')}
+        onClick={() => openUrlInNewTab('https://developer.mozilla.org/docs/Web/JavaScript')}
       >
-        {t('java_platform')}
+        JavaScript
       </Button>
+      {t('react_description').split('JavaScript')[1]}
       <br />
+
+      {/* WEB CITE */}
       <cite>
-        <Link href='https://en.wikipedia.org/wiki/Spring_Framework' isExternal>
+        <Link href='https://en.wikipedia.org/wiki/React_(JavaScript_library)' isExternal>
           Wikipedia <Icon as={FiExternalLink} mx='2px' />
         </Link>
       </cite>
     </Text>
   );
+
   return (
     <TechButton
       t={t}
@@ -438,6 +459,7 @@ export const ReactButton = () => {
       icon={<SiReact />}
       bgHover='rgba(97, 219, 251, 0.48)'
       bgActive='rgba(97, 219, 251, 0.64)'
+      infoUrl='https://reactjs.org/'
     />
   );
 };
@@ -447,26 +469,20 @@ export const BootstrapButton = () => {
 
   const description = (
     <Text>
-      {t('spring_description')}
-      &nbsp;
-      <Button
-        leftIcon={<SiJava />}
-        bg='rgba(248, 152, 32, 0.36)'
-        _hover={{ bg: 'rgba(248, 152, 32, 0.48)' }}
-        _active={{ bg: 'rgba(248, 152, 32, 0.64)' }}
-        m={1}
-        onClick={() => openUrlInNewTab('https://www.java.com/')}
-      >
-        {t('java_platform')}
-      </Button>
+
+      {/* DESCRIPTION */}
+      {t('bootstrap_description')}
       <br />
+
+      {/* WEB CITE */}
       <cite>
-        <Link href='https://en.wikipedia.org/wiki/Spring_Framework' isExternal>
+        <Link href='https://en.wikipedia.org/wiki/Bootstrap_(front-end_framework)' isExternal>
           Wikipedia <Icon as={FiExternalLink} mx='2px' />
         </Link>
       </cite>
     </Text>
   );
+
   return (
     <TechButton
       t={t}
@@ -475,6 +491,7 @@ export const BootstrapButton = () => {
       icon={<SiBootstrap />}
       bgHover='rgba(86, 61, 124, 0.48)'
       bgActive='rgba(86, 61, 124, 0.64)'
+      infoUrl='https://getbootstrap.com/'
     />
   );
 };
@@ -484,26 +501,32 @@ export const PugButton = () => {
 
   const description = (
     <Text>
-      {t('spring_description')}
+
+      {/* DESCRIPTION */}
+      {t('pug_description').split('express.js')[0]}
       &nbsp;
       <Button
-        leftIcon={<SiJava />}
-        bg='rgba(248, 152, 32, 0.36)'
-        _hover={{ bg: 'rgba(248, 152, 32, 0.48)' }}
-        _active={{ bg: 'rgba(248, 152, 32, 0.64)' }}
+        leftIcon={<SiExpress />}
+        bg='rgba(64, 77, 89, 0.36)'
+        _hover={{ bg: 'rgba(64, 77, 89, 0.48)' }}
+        _active={{ bg: 'rgba(64, 77, 89, 0.64)' }}
         m={1}
-        onClick={() => openUrlInNewTab('https://www.java.com/')}
+        onClick={() => openUrlInNewTab('https://expressjs.com/')}
       >
-        {t('java_platform')}
+        Express.js
       </Button>
+      {t('pug_description').split('express.js')[1]}
       <br />
+
+      {/* WEB CITE */}
       <cite>
-        <Link href='https://en.wikipedia.org/wiki/Spring_Framework' isExternal>
-          Wikipedia <Icon as={FiExternalLink} mx='2px' />
+        <Link href='https://expressjs.com/en/resources/template-engines.html' isExternal>
+          expressjs.com <Icon as={FiExternalLink} mx='2px' />
         </Link>
       </cite>
     </Text>
   );
+
   return (
     <TechButton
       t={t}
@@ -512,6 +535,7 @@ export const PugButton = () => {
       icon={<SiPug />}
       bgHover='rgba(255, 255, 255, 0.48)'
       bgActive='rgba(255, 255, 255, 0.64)'
+      infoUrl='https://pugjs.org/'
     />
   );
 };
@@ -541,6 +565,7 @@ export const MySqlButton = () => {
       </cite>
     </Text>
   );
+
   return (
     <TechButton
       t={t}
@@ -578,6 +603,7 @@ export const MicrosoftSqlButton = () => {
       </cite>
     </Text>
   );
+
   return (
     <TechButton
       t={t}
@@ -615,6 +641,7 @@ export const PostgreSqlButton = () => {
       </cite>
     </Text>
   );
+
   return (
     <TechButton
       t={t}
@@ -652,6 +679,7 @@ export const MongoDbButton = () => {
       </cite>
     </Text>
   );
+
   return (
     <TechButton
       t={t}
@@ -689,6 +717,7 @@ export const GraphDbButton = () => {
       </cite>
     </Text>
   );
+
   return (
     <TechButton
       t={t}
@@ -726,6 +755,7 @@ export const ElasticsearchButton = () => {
       </cite>
     </Text>
   );
+
   return (
     <TechButton
       t={t}
@@ -763,6 +793,7 @@ export const KibanaButton = () => {
       </cite>
     </Text>
   );
+
   return (
     <TechButton
       t={t}
@@ -800,6 +831,7 @@ export const AWSButton = () => {
       </cite>
     </Text>
   );
+
   return (
     <TechButton
       t={t}
@@ -837,6 +869,7 @@ export const AzureButton = () => {
       </cite>
     </Text>
   );
+
   return (
     <TechButton
       t={t}
@@ -874,6 +907,7 @@ export const DockerButton = () => {
       </cite>
     </Text>
   );
+
   return (
     <TechButton
       t={t}
@@ -911,6 +945,7 @@ export const KubernetesButton = () => {
       </cite>
     </Text>
   );
+
   return (
     <TechButton
       t={t}
@@ -949,6 +984,7 @@ export const GithubactionsButton = () => {
       </cite>
     </Text>
   );
+
   return (
     <TechButton
       t={t}
@@ -986,6 +1022,7 @@ export const JenkinsButton = () => {
       </cite>
     </Text>
   );
+
   return (
     <TechButton
       t={t}

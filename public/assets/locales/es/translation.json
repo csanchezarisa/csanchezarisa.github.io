@@ -37,5 +37,9 @@
   "flask_description": "Flask es un framework minimalista escrito en Python que permite crear aplicaciones web rápidamente y con un mínimo número de líneas de código",
   "laravel_description": "Laravel es un framework de código abierto para desarrollar aplicaciones y servicios web con PHP",
   "django_description": "Django es un framework de desarrollo web de código abierto, escrito en Python, que respeta el patrón de diseño conocido como modelo–vista–controlador (MVC)",
-  "expressjs_description": "Express.js, o simplemente Express, es un marco de aplicaciones web back-end para Node.js, está diseñado para crear aplicaciones web y API"
+  "expressjs_description": "Express.js, o simplemente Express, es un marco de aplicaciones web back-end para Node.js, está diseñado para crear aplicaciones web y API",
+  "angular_description": "Angular es un framework para aplicaciones web desarrollado en TypeScript, de código abierto, mantenido por Google, que se utiliza para crear y mantener aplicaciones web de una sola página (SPA)",
+  "react_description": "React es una biblioteca JavaScript de código abierto diseñada para crear interfaces de usuario con el objetivo de facilitar el desarrollo de aplicaciones en una sola página (SPA)",
+  "bootstrap_description": "Bootstrap es un marco CSS gratuito y de código abierto dirigido al desarrollo web front-end receptivo y móvil",
+  "pug_description": "Es un motor de plantillas de express.js inspirado Haml (anteriormente Jade)"
 }

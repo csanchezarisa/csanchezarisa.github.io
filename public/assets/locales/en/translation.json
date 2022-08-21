@@ -37,5 +37,9 @@
   "flask_description": "Flask is a minimalist framework written in Python that allows you to create web applications quickly and with a minimum number of lines of code",
   "laravel_description": "Laravel is an open source framework for developing web applications and services with PHP",
   "django_description": "Django is an open source web development framework, written in Python, that adheres to the model-view-controller (MVC) design pattern",
-  "expressjs_description": "Express.js, or simply Express, is a back end web application framework for Node.js, it is designed for building web applications and APIs"
+  "expressjs_description": "Express.js, or simply Express, is a back end web application framework for Node.js, it is designed for building web applications and APIs",
+  "angular_description": "Angular is an open source web application framework developed in TypeScript, maintained by Google, used to create and maintain Single Page Web Applications (SPAs)",
+  "react_description": "React is a free and open-source front-end JavaScript library for building user interfaces based on UI components",
+  "bootstrap_description": "Bootstrap is a free and open-source CSS framework directed at responsive, mobile-first front-end web development",
+  "pug_description": "Is an express.js Haml-inspired template engine (formerly Jade)"
 }
