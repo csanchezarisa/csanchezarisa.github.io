@@ -170,8 +170,7 @@ export const SpringButton = () => {
     <Text>
 
       {/* DESCRIPTION */}
-      {t('spring_description')}
-      &nbsp;
+      {t('spring_description').split('JAVA')[0]}
       <Button
         leftIcon={<SiJava />}
         bg='rgba(248, 152, 32, 0.36)'
@@ -180,8 +179,9 @@ export const SpringButton = () => {
         m={1}
         onClick={() => openUrlInNewTab('https://www.java.com/')}
       >
-        {t('java_platform')}
+        JAVA
       </Button>
+      {t('spring_description').split('JAVA')[1]}
       <br />
 
       {/* WEB CITE */}
@@ -900,7 +900,7 @@ export const GithubactionsButton = () => {
     <Text>
 
       {/* DESCRIPTION */}
-      {t('spring_description')}
+      {t('githubactions_description')}
       <br />
 
       {/* WEB CITE */}
