@@ -193,34 +193,33 @@ function MyStack() {
                 spacing={{ base: 5, md: 10 }}
                 divider={<StackDivider />}
               >
-                {stacks.map(stack => {
+                {stacks.map((stack, index) => {
                   return (
-                    <>
-                      <Tooltip
-                        label={t('click_stack_btn').replace('{key}', t(stack.title))}
-                        closeOnClick={true}
-                        hasArrow='true'
-                        placement='auto'
-                        bg='gray.200'
-                        color='#1A202C'
+                    <Tooltip
+                      key={index}
+                      label={t('click_stack_btn').replace('{key}', t(stack.title))}
+                      closeOnClick={true}
+                      hasArrow='true'
+                      placement='auto'
+                      bg='gray.200'
+                      color='#1A202C'
+                    >
+                      <Button
+                        colorScheme='red'
+                        size={{ base: 'sm', md: 'lg' }}
+                        bg={'red.400'}
+                        _hover={{ bg: 'red.500' }}
+                        width='100%'
+                        leftIcon={stack.icon}
+                        rightIcon={<FiChevronRight />}
+                        onClick={() => changeOpenStack({ 
+                          open: openStack.stack !== stack || !openStack.open, 
+                          stack: stack 
+                        })}
                       >
-                        <Button
-                          colorScheme='red'
-                          size={{ base: 'sm', md: 'lg' }}
-                          bg={'red.400'}
-                          _hover={{ bg: 'red.500' }}
-                          width='100%'
-                          leftIcon={stack.icon}
-                          rightIcon={<FiChevronRight />}
-                          onClick={() => changeOpenStack({ 
-                            open: openStack.stack !== stack || !openStack.open, 
-                            stack: stack 
-                          })}
-                        >
-                          {t(stack.title)}
-                        </Button>
-                      </Tooltip>
-                    </>
+                        {t(stack.title)}
+                      </Button>
+                    </Tooltip>
                   );
                 })}
               </VStack>
@@ -229,8 +228,8 @@ function MyStack() {
               <Collapse 
                 in={openStack.open} 
                 dimension='width'
-                mountOnEnter='true'
-                unmountOnExit='true'
+                mountOnEnter={true}
+                unmountOnExit={true}
                 style={{
                   height: '100%'
                 }}
