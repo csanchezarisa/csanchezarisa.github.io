@@ -76,7 +76,7 @@ function MainSection({
       <Stack
         align={'center'}
         spacing={{ base: 8, md: 10 }}
-        py={{ base: 20, md: 28 }}
+        py={{ base: 5, sm: 10, md: 20, lg: 28 }}
         direction={{ base: 'column', md: 'row' }}
       >
         <Stack flex={1} spacing={{ base: 5, md: 10 }}>
@@ -100,7 +100,7 @@ function MainSection({
               _hover={{ bg: 'red.500' }}
               onClick={() => fullpageApi.moveTo(workSectionPosition)}
             >
-              {t('work')}
+              {t('my_stack')}
             </Button>
             <Button
               rounded={'full'}

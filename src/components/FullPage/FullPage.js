@@ -7,6 +7,7 @@ import './FullPage.css';
 import MainNavBar from 'components/MainNavBar/MainNavBar';
 import MainSection from 'components/sections/MainSection/MainSection';
 import AboutMe from 'components/sections/AboutMe/AboutMe';
+import MyStack from 'components/sections/MyStack/MyStack';
 import ContactSection from 'components/sections/ContactSection/ContactSection';
 import Footer from 'components/Footer/Footer';
 import { fullpageApiLicense } from 'config/licenses';
@@ -25,6 +26,7 @@ function FullPage() {
   const Sections = [
     { Section: MainSection, id: 'main', name: 'Hero' },
     { Section: AboutMe, id: 'about', name: t('about_me') },
+    { Section: MyStack, id: 'stack', name: t('my_stack') },
     { Section: ContactSection, id: 'contact', name: t('contact_me') },
   ]
 
@@ -60,6 +62,7 @@ function FullPage() {
                       state={state} 
                       fullpageApi={fullpageApi} 
                       contactSectionPosition={Sections.findIndex(s => s.id === 'contact') + 2} 
+                      workSectionPosition={Sections.findIndex(s => s.id === 'stack') + 2} 
                     />
                   </div>
                 )
