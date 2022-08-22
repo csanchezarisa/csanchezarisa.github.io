@@ -53,5 +53,6 @@
   "docker_description": "Docker es un conjunto de productos de plataforma como servicio (PaaS) que utilizan la virtualización a nivel del sistema operativo para entregar software en paquetes denominados contenedores",
   "kubernetes_description": "Kubernetes es un sistema de orquestación de contenedores de código abierto para automatizar la implementación, el escalado y la administración de software",
   "githubactions_description": "GitHub Actions es una plataforma de integración continua y entrega continua (CI/CD) que permite automatizar su proceso de compilación, prueba e implementación",
-  "jenkins_description": "Jenkins es un servidor de automatización de código abierto que permite a los desarrolladores de todo el mundo crear, probar e implementar su software de manera confiable"
+  "jenkins_description": "Jenkins es un servidor de automatización de código abierto que permite a los desarrolladores de todo el mundo crear, probar e implementar su software de manera confiable",
+  "sonarqube_description": "SonarQube es una plataforma de código abierto desarrollada por SonarSource para la inspección continua de la calidad del código, realizar revisiones automáticas con análisis estático del código para detectar errores y code smells en 17 lenguajes de programación"
 }
