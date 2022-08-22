@@ -44,6 +44,7 @@ import {
   SiPug, 
   SiPython, 
   SiReact, 
+  SiSonarqube, 
   SiSpring, 
   SiTypescript
 } from 'react-icons/si';
@@ -954,6 +955,38 @@ export const JenkinsButton = () => {
       bgHover='rgba(211, 56, 52, 0.48)'
       bgActive='rgba(211, 56, 52, 0.64)'
       infoUrl='https://www.jenkins.io/'
+    />
+  );
+};
+
+export const SonarqubeButton = () => {
+  const { t } = useTranslation();
+
+  const description = (
+    <Text>
+
+      {/* DESCRIPTION */}
+      {t('sonarqube_description')}
+      <br />
+
+      {/* WEB CITE */}
+      <cite>
+        <Link href='https://en.wikipedia.org/wiki/SonarQube' isExternal>
+          Wikipedia <Icon as={FiExternalLink} mx='2px' />
+        </Link>
+      </cite>
+    </Text>
+  );
+
+  return (
+    <TechButton
+      t={t}
+      description={description}
+      label='SonarQube'
+      icon={<SiSonarqube />}
+      bgHover='rgba(44, 131, 164, 0.48)'
+      bgActive='rgba(44, 131, 164, 0.64)'
+      infoUrl='https://www.sonarqube.org/'
     />
   );
 };
