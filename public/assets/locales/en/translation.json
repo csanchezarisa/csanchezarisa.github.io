@@ -53,5 +53,6 @@
   "docker_description": "Docker is a set of platform as a service (PaaS) products that use OS-level virtualization to deliver software in packages called containers",
   "kubernetes_description": "Kubernetes is an open-source container orchestration system for automating software deployment, scaling, and management",
   "githubactions_description": "GitHub Actions is a continuous integration and continuous delivery (CI/CD) platform that lets you automate your build, test, and deployment process",
-  "jenkins_description": "Jenkins is an open source automation server which enables developers around the world to reliably build, test, and deploy their software"
+  "jenkins_description": "Jenkins is an open source automation server which enables developers around the world to reliably build, test, and deploy their software",
+  "sonarqube_description": "SonarQube is an open-source platform developed by SonarSource for continuous inspection of code quality to perform automatic reviews with static analysis of code to detect bugs, code smells on 17 programming languages"
 }

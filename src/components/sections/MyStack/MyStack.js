@@ -45,6 +45,7 @@ import {
   PostgreSqlButton, 
   PugButton, 
   ReactButton, 
+  SonarqubeButton, 
   SpringButton 
 } from "./TechButton/TechButton";
 
@@ -97,6 +98,7 @@ const stacks = [
       <KubernetesButton />,
       <GithubactionsButton />,
       <JenkinsButton />,
+      <SonarqubeButton />
     ]
   }
 ];
