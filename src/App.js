@@ -1,5 +1,6 @@
 import React, { Suspense, useState } from 'react';
 import { ChakraProvider, Fade } from '@chakra-ui/react';
+import { isMobile } from 'react-device-detect';
 import CursorImage from 'assets/media/cursor.png';
 import PointerImage from 'assets/media/pointer.png';
 import TextImage from 'assets/media/text.png';
@@ -21,11 +22,14 @@ function App() {
       unmountOnExit={true}
     >
       <ChakraProvider >
-        <CustomCursor 
-          defaultImg={CursorImage} 
-          pointerImg={PointerImage} 
-          textImg={TextImage} 
-        />
+        {
+          !isMobile && 
+          <CustomCursor 
+            defaultImg={CursorImage} 
+            pointerImg={PointerImage} 
+            textImg={TextImage} 
+          />
+        }
         <div className="App">
           <Suspense fallback={<Loading />}>
             <FullPage />
