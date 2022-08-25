@@ -1,0 +1,17 @@
+* {
+  cursor: none !important;
+}
+
+.cursor {
+  height: 48px;
+  width: 48px;
+  background-size: 48px 48px;
+  position: absolute;
+  display: flex;
+  z-index: 99;
+  pointer-events: none;
+}
+
+.hidden {
+  display: none;
+}
