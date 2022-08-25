@@ -158,7 +158,7 @@ function MyStack() {
   const [openStack, changeOpenStack] = useState({ open: false, stack: stacks[0] });
 
   return (
-    <Container maxW={'full'} textAlign="center">
+    <Container maxW={'7xl'} textAlign="center">
       <Stack
         align={'center'}
         spacing={{ base: 8, md: 10 }}
