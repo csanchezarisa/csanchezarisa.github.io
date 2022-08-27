@@ -4,4 +4,5 @@
 	animation: animated-gradient 30s ease infinite;
   border-radius: 1rem;
   color: white;
+	max-height: inherit;
 }

@@ -114,6 +114,7 @@ function StackInfo(stack, t) {
   return (
       <Box
         position={'relative'}
+        maxH={{ base: '60vh', sm: '40vh'}}
         height={'full'}
         rounded={'2xl'}
         boxShadow={'2xl'}
@@ -122,7 +123,7 @@ function StackInfo(stack, t) {
         key={stack.id}
         id={`stack-${stack.id}-info`}
       >
-        <Card className="stack-gradient-background">
+        <Card className="stack-gradient-background overflow-auto">
           <Card.Body>
 
             {/* CARD TITLE */}
@@ -233,7 +234,7 @@ function MyStack() {
                 mountOnEnter={true}
                 unmountOnExit={true}
                 style={{
-                  height: '100%'
+                  height: '100%',
                 }}
               >
                 {StackInfo(openStack.stack, t)}
