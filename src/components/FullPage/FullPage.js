@@ -10,10 +10,13 @@ import MyStack from 'components/sections/MyStack/MyStack';
 import ContactSection from 'components/sections/ContactSection/ContactSection';
 import Footer from 'components/Footer/Footer';
 import { fullpageApiLicense } from 'config/licenses';
+import FAB from 'components/FAB/FAB';
 
 
 function FullPage() {
   const { t } = useTranslation();
+
+  const [fullpageApiConst, changeFullpageApiConst] = useState();
 
   const [isLoaded, changeIsLoaded] = useState(false);
   if(isLoaded) {
@@ -33,14 +36,23 @@ function FullPage() {
       in={!isLoaded}
       unmountOnExit={true}
     >
+
+      {/* FAB button to go to top */}
+      <FAB 
+        fullpageApi={fullpageApiConst} 
+        activeSection={activeSection} 
+      />
+
+      {/* Fullpage application, with all sections and menus */}
       <ReactFullpage
         licenseKey={fullpageApiLicense}
         scrollingSpeed={300}
         sectionsColor={'#282c34,'.repeat(Sections.length + 2).split(',')}
-        normalScrollElements='#footer, #menu'
         afterLoad={(_origin, destination) => changeActiveSection(destination.item.id)}
 
         render={({ state, fullpageApi }) => {
+          changeFullpageApiConst(fullpageApi);
+
           return (
             <ReactFullpage.Wrapper>
               {/* Navbar */}
