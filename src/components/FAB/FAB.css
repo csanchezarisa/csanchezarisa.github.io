@@ -1,0 +1,7 @@
+.fab-btn {
+  position: absolute !important;
+  display: flex !important;
+  bottom: 30px !important; 
+  right: 30px !important;
+  z-index: 9999;
+}
