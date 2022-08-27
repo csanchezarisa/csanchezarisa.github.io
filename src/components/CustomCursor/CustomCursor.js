@@ -6,7 +6,7 @@ import './CustomCursor.css';
 /**
  * DOM elements that change cursor to pointer type
  */
-const pointerCursorElements = ['BUTTON', 'A', 'svg', 'path'];
+const pointerCursorElements = ['BUTTON', 'A'];
 /**
  * DOM elements that change cursor to text type
  */
@@ -56,6 +56,25 @@ const changeCursorHidden = (e, isHidden, cursor, images) => {
   changeCursorStyle(e, cursor, images);
 };
 
+/**
+ * Checks if the element or its parent elements nodeNames are contained
+ * in the given elements array recursively 
+ * @param {EventTarget} targetElement Target element to do the checks
+ * @param {string[]} elementsArray Elemenents list
+ * @returns Whether the targetElement or its parent elements are included in the elementsArray
+ */
+const isCursorElement = (targetElement, elementsArray) => {
+  if(!targetElement) {
+    return false;
+  }
+
+  if(elementsArray.includes(targetElement.nodeName)) {
+    return true;
+  }
+
+  return isCursorElement(targetElement.parentElement, elementsArray);
+};
+
 
 /**
  * Changes the custom cursor style
@@ -64,13 +83,13 @@ const changeCursorHidden = (e, isHidden, cursor, images) => {
  * @param {{ default: string, pointer: string, text: string }} images JSON with the cursor images references
  */
 const changeCursorStyle = (e, cursor, images) => {
-  const targetElement = e.target.nodeName;
+  const targetElement = e.target;
   const img = cursor.current.children[0];
   
-  if(pointerCursorElements.includes(targetElement)) {
+  if(isCursorElement(targetElement, pointerCursorElements)) {
     img.src = images.pointer;
   }
-  else if(textCursorElements.includes(targetElement)) {
+  else if(isCursorElement(targetElement, textCursorElements)) {
     img.src = images.text;
   }
   else if(img.src !== images.default) {
