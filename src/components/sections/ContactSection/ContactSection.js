@@ -199,7 +199,6 @@ function ContactForm() {
           _hover={{
             bg: 'red.500',
           }}
-          isFullWidth
           isLoading={isEmailSubmitting}
         >
           {t('send_message')}

@@ -8,7 +8,7 @@
   background-size: 48px 48px;
   position: absolute;
   display: flex;
-  z-index: 99;
+  z-index: 99999;
   pointer-events: none;
 }
 
