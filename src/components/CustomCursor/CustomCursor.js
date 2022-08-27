@@ -57,9 +57,10 @@ const changeCursorHidden = (e, isHidden, cursor, images) => {
 };
 
 /**
- * 
- * @param {EventTarget} targetElement 
- * @param {string[]} elementsArray 
+ * Checks if the element or its parent elements nodeNames are contained
+ * in the given elements array recursively 
+ * @param {EventTarget} targetElement Target element to do the checks
+ * @param {string[]} elementsArray Elemenents list
  * @returns Whether the targetElement or its parent elements are included in the elementsArray
  */
 const isCursorElement = (targetElement, elementsArray) => {
